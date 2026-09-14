@@ -1,0 +1,12 @@
+# Datasets (downloaded locally, never pushed)
+LibriSpeech/
+DNS-Challenge/
+*.flac
+*.wav
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Training outputs (checkpoints, logs, tensorboard)
+runs/

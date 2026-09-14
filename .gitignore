@@ -8,4 +8,14 @@ DNS-Challenge/
 __pycache__/
 *.pyc
 
-# Training outputs (checkpoints, logs, tensorboard)
+# Training outputs: ignore checkpoints / tensorboard / logs, keep only the small summaries
+runs/**
+!runs/
+!runs/*/
+!runs/*/test_summary.json
+!runs/*/gate_stats.csv
+!runs/*/config.json
+!runs/*/test_metrics.csv
+!runs/summary.csv
+!runs/summary_by_config.csv
+!runs/run_all.log

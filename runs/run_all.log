@@ -1,0 +1,71 @@
+2026-09-06 18:07:37  phases: official,baseline,eval,collect | seeds: 0,1,2 | data: D:\mhtra_net\data\voicebank-demand-16k | official: D:\mhtra_net\data\gtcrn_official_vctk.tar
+2026-09-06 18:07:37  START evaluate official checkpoint
+2026-09-06 18:07:37    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\data\gtcrn_official_vctk.tar" --official --csv "runs\official\test_metrics.csv" --macs_seconds 10
+2026-09-06 18:08:05  DONE  evaluate official checkpoint after 00:00:28
+2026-09-06 18:08:05  START train base_s0
+2026-09-06 18:08:05    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_s0" --seed 0 --baseline
+2026-09-06 20:46:44  DONE  train base_s0 after 02:38:38
+2026-09-06 20:46:44  START train base_s1
+2026-09-06 20:46:44    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_s1" --seed 1 --baseline
+2026-09-07 05:48:56  phases: baseline,h1,eval,collect | seeds: 0,1,2 | data: D:\mhtra_net\data\voicebank-demand-16k | official: D:\mhtra_net\data\gtcrn_official_vctk.tar
+2026-09-07 05:48:56  SKIP  base_s0 (best.pt exists)
+2026-09-07 05:48:56  START train base_s1
+2026-09-07 05:48:56    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_s1" --seed 1 --baseline
+2026-09-07 08:27:05  DONE  train base_s1 after 02:38:09
+2026-09-07 08:27:05  START train base_s2
+2026-09-07 08:27:05    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_s2" --seed 2 --baseline
+2026-09-07 08:29:42  phases: baseline,h1,eval,collect | seeds: 0,1,2 | data: D:\mhtra_net\data\voicebank-demand-16k | official: D:\mhtra_net\data\gtcrn_official_vctk.tar
+2026-09-07 08:29:42  SKIP  base_s0 (best.pt exists)
+2026-09-07 08:29:42  SKIP  base_s1 (best.pt exists)
+2026-09-07 08:29:42  START train base_s2
+2026-09-07 08:29:42    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_s2" --seed 2 --baseline
+2026-09-07 11:06:38  DONE  train base_s2 after 02:36:56
+2026-09-07 11:06:38  SKIP  h1_s0 (best.pt exists)
+2026-09-07 11:06:38  START train h1_s1
+2026-09-07 11:06:38    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\h1_s1" --seed 1 --heads 1
+2026-09-07 14:07:46  DONE  train h1_s1 after 03:01:07
+2026-09-07 14:07:46  START train h1_s2
+2026-09-07 14:07:46    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\h1_s2" --seed 2 --heads 1
+2026-09-07 15:33:52  FAILED train h1_s2 after 01:26:06
+2026-09-07 15:33:52  SKIP  eval base_s0 (exists)
+2026-09-07 15:33:53  START eval base_s1
+2026-09-07 15:33:53    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_s1\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-07 15:35:13  DONE  eval base_s1 after 00:01:20
+2026-09-07 15:35:13  START eval base_s2
+2026-09-07 15:35:13    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_s2\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-07 15:35:43  DONE  eval base_s2 after 00:00:29
+2026-09-07 15:35:43  SKIP  eval h1_s0 (exists)
+2026-09-07 15:35:43  START eval h1_s1
+2026-09-07 15:35:43    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_s1\best.pt" --macs_seconds 10 --compare "runs\base_s1\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-07 15:36:14  DONE  eval h1_s1 after 00:00:31
+2026-09-07 15:36:14  START eval h1_s2
+2026-09-07 15:36:14    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_s2\best.pt" --macs_seconds 10 --compare "runs\base_s2\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-07 15:36:46  DONE  eval h1_s2 after 00:00:31
+2026-09-07 15:36:46  START collect results
+2026-09-07 15:36:46    > python collect_results.py --runs "runs" --out "runs\summary.csv"
+2026-09-07 15:36:46  DONE  collect results after 00:00:00
+2026-09-07 15:36:46  ALL PHASES FINISHED - see runs\summary.csv and runs\run_all.log
+2026-09-07 17:26:25  phases: ood,collect | seeds: 0,1,2,3,4 | data: D:\mhtra_net\data\voicebank-demand-16k | official: D:\mhtra_net\data\gtcrn_official_vctk.tar
+2026-09-07 17:26:25  START ood libri_esc50 / base_s0
+2026-09-07 17:26:25    > python evaluate_any.py --root "D:\mhtra_net\data\testsets\libri_esc50" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_s0\best.pt" --csv "D:\mhtra_net\mhtra_fixed\runs\base_s0\libri_esc50.csv"
+2026-09-07 17:28:20  DONE  ood libri_esc50 / base_s0 after 00:01:54
+2026-09-07 17:28:20  START ood libri_esc50 / base_s1
+2026-09-07 17:28:20    > python evaluate_any.py --root "D:\mhtra_net\data\testsets\libri_esc50" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_s1\best.pt" --csv "D:\mhtra_net\mhtra_fixed\runs\base_s1\libri_esc50.csv"
+2026-09-07 17:29:23  DONE  ood libri_esc50 / base_s1 after 00:01:03
+2026-09-07 17:29:23  START ood libri_esc50 / base_s2
+2026-09-07 17:29:23    > python evaluate_any.py --root "D:\mhtra_net\data\testsets\libri_esc50" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_s2\best.pt" --csv "D:\mhtra_net\mhtra_fixed\runs\base_s2\libri_esc50.csv"
+2026-09-07 17:30:41  DONE  ood libri_esc50 / base_s2 after 00:01:17
+2026-09-07 17:30:41  START ood libri_esc50 / h1_s0
+2026-09-07 17:30:41    > python evaluate_any.py --root "D:\mhtra_net\data\testsets\libri_esc50" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_s0\best.pt" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_s0\libri_esc50.csv" --compare "runs\base_s0\libri_esc50.csv"
+2026-09-07 17:31:54  DONE  ood libri_esc50 / h1_s0 after 00:01:13
+2026-09-07 17:31:54  START ood libri_esc50 / h1_s1
+2026-09-07 17:31:54    > python evaluate_any.py --root "D:\mhtra_net\data\testsets\libri_esc50" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_s1\best.pt" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_s1\libri_esc50.csv" --compare "runs\base_s1\libri_esc50.csv"
+2026-09-07 17:33:00  DONE  ood libri_esc50 / h1_s1 after 00:01:05
+2026-09-07 17:33:00  START ood libri_esc50 / h1_s2
+2026-09-07 17:33:00    > python evaluate_any.py --root "D:\mhtra_net\data\testsets\libri_esc50" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_s2\best.pt" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_s2\libri_esc50.csv" --compare "runs\base_s2\libri_esc50.csv"
+2026-09-07 17:34:20  DONE  ood libri_esc50 / h1_s2 after 00:01:20
+2026-09-07 17:34:20  START ood libri_esc50 / official
+2026-09-07 17:34:20    > python evaluate_any.py --root "D:\mhtra_net\data\testsets\libri_esc50" --ckpt "D:\mhtra_net\data\gtcrn_official_vctk.tar" --official --csv "runs\official\libri_esc50.csv"
+2026-09-07 17:35:26  DONE  ood libri_esc50 / official after 00:01:05
+2026-09-07 17:35:26  START ood libri_esc50_matched / base_s0
+2026-09-07 17:35:26    > python evaluate_any.py --root "D:\mhtra_net\data\testsets\libri_esc50_matched" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_s0\best.pt" --csv "D:\mhtra_net\mhtra_fixed\runs\base_s0\libri_esc50_matched.csv"

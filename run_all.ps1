@@ -9,7 +9,10 @@
   # quick pass: 3 seeds, skips H=4 and the windowed-attention runs
   .\run_all.ps1 -Data D:\data\VoiceBank_DEMAND_16k -Official ...\model_trained_on_vctk.tar -Quick
 
-  # only some phases (comma separated): official, baseline, h1, h4, zeroinit, ablate, window, eval, gates, ood, collect
+  # only some phases (comma separated): official, baseline, h1, h4, zeroinit, ablate, window,
+  #   sweep (loss-weight robustness: w_time in $SweepWeights, both models),
+  #   zeroinit_old (H=1 with W_o=0 under w_time=1), badlr (lr 2e-3, no warmup, both models),
+  #   eval, gates, ood, collect
   .\run_all.ps1 -Data ... -Official ... -Phases baseline,h1,eval,collect
 
   # with the out-of-domain sets (each has clean\ and noisy\ subfolders)
@@ -34,6 +37,7 @@ param(
     [int] $Batch = 16,
     [double] $Segment = 0,
     [int] $Window = 64,
+    [string[]] $SweepWeights = @("1", "3", "0.3"),
     [string[]] $Phases = @("official", "baseline", "h1", "h4", "zeroinit", "ablate", "window", "eval", "gates", "ood", "collect"),
     [switch] $Quick,
     [switch] $Amp
@@ -44,6 +48,7 @@ $ErrorActionPreference = "Continue"
 # `powershell -File x.ps1 -Phases a,b,c` delivers ONE string "a,b,c" (not an array); normalise both forms
 $Phases   = @($Phases   | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim().ToLower() } | Where-Object { $_ })
 $Testsets = @($Testsets | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+$SweepWeights = @($SweepWeights | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })
 
 # refuse to start on bad paths - otherwise every phase "succeeds" in a second
 if (-not (Test-Path (Join-Path $Data "clean_trainset_28spk_wav"))) {
@@ -83,11 +88,19 @@ function Run($what, $cmd) {
 $common = "--data `"$Data`" --epochs $Epochs --batch_size $Batch --segment $Segment --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb"
 if ($Amp) { $common += " --amp" }
 
+function Finished($out) {
+    # a run is complete only when train.py wrote its final line - best.pt alone can be a half-trained run
+    $lg = Join-Path $out "log.txt"
+    return (Test-Path $lg) -and (Select-String -Path $lg -Pattern "training finished" -Quiet)
+}
 function Train($name, $extra, $seed) {
     $out = Join-Path $Runs $name
-    if (Test-Path (Join-Path $out "best.pt")) { Log "SKIP  $name (best.pt exists)"; return }
+    if (Finished $out) { Log "SKIP  $name (training finished)"; return }
     $resume = ""
-    if (Test-Path (Join-Path $out "last.pt")) { $resume = " --resume `"$(Join-Path $out 'last.pt')`"" }
+    if (Test-Path (Join-Path $out "last.pt")) {
+        Log "RESUME $name from last.pt (previous run was interrupted)"
+        $resume = " --resume `"$(Join-Path $out 'last.pt')`""
+    }
     Run "train $name" "python train.py $common --out `"$out`" --seed $seed $extra$resume"
 }
 
@@ -115,16 +128,44 @@ if ("ablate"   -in $Phases) {
 }
 if ("window"   -in $Phases) { foreach ($s in $seedsAbl) { Train "h1win${Window}_s$s" "--heads 1 --attn_window $Window" $s } }
 
+# --- robustness to loss weighting: identical recipe, only --w_time changes (argparse keeps the last flag)
+if ("sweep" -in $Phases) {
+    foreach ($w in $SweepWeights) {
+        $tag = "wt" + ($w -replace "\.", "p")            # 0.3 -> wt0p3, keeps run names filesystem-safe
+        foreach ($s in $seedsAbl) {
+            Train "base_${tag}_s$s" "--baseline --w_time $w" $s
+            Train "h1_${tag}_s$s"   "--heads 1 --w_time $w" $s
+        }
+    }
+}
+# --- mechanism test: does starting exactly at TRA (W_o = 0) still rescue the bad basin at w_time=1 ?
+if ("zeroinit_old" -in $Phases) {
+    foreach ($s in $seedsAbl) { Train "h1zero_wt1_s$s" "--heads 1 --zero_init_out --w_time 1" $s }
+}
+# --- a second mis-specification: high LR, no warmup (the paper's original schedule), both models
+if ("badlr" -in $Phases) {
+    foreach ($s in $seedsAbl) {
+        Train "base_lr2e3_s$s" "--baseline --lr 2e-3 --warmup_frac 0" $s
+        Train "h1_lr2e3_s$s"   "--heads 1 --lr 2e-3 --warmup_frac 0" $s
+    }
+}
+
 # ---------------------------------------------------------------- evaluation
-$allRuns = Get-ChildItem -Path $Runs -Directory | Where-Object { Test-Path (Join-Path $_.FullName "best.pt") }
+$allRuns = Get-ChildItem -Path $Runs -Directory | Where-Object { (Test-Path (Join-Path $_.FullName "best.pt")) -and (Finished $_.FullName) }
+foreach ($r in (Get-ChildItem -Path $Runs -Directory | Where-Object { (Test-Path (Join-Path $_.FullName "best.pt")) -and -not (Finished $_.FullName) })) {
+    Log "WARN  $($r.Name) has best.pt but never finished training - NOT evaluated; re-run the training phase to resume it"
+}
 if ("eval" -in $Phases) {
     foreach ($r in $allRuns) {
         $csv = Join-Path $r.FullName "test_metrics.csv"
         if (Test-Path $csv) { Log "SKIP  eval $($r.Name) (exists)"; continue }
-        # paired against the baseline with the SAME seed, plus the official checkpoint
+        # paired against the baseline with the SAME recipe tag and SAME seed, plus the official checkpoint
+        #   h1_s0 -> base_s0 ; h1_wt3_s1 -> base_wt3_s1 ; h1zero_wt1_s2 -> base_wt1_s2 ; seonly_s0 -> base_s0
         $seed = ($r.Name -split "_s")[-1]
+        $suffix = ""
+        if ($r.Name -match "^[A-Za-z0-9]+(_(wt|lr)[A-Za-z0-9]+)?_s\d+$") { $suffix = $Matches[1] }
         $cmp = @()
-        $b = Join-Path (Join-Path $Runs "base_s$seed") "test_metrics.csv"
+        $b = Join-Path (Join-Path $Runs "base${suffix}_s$seed") "test_metrics.csv"
         if ((Test-Path $b) -and ($r.Name -notlike "base_*")) { $cmp += "`"$b`"" }
         $o = Join-Path $officialDir "test_metrics.csv"
         if (Test-Path $o) { $cmp += "`"$o`"" }

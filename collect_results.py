@@ -30,7 +30,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--runs", default="runs")
     ap.add_argument("--out", default=None)
-    ap.add_argument("--modeb_lsd_margin", type=float, default=0.5)
+    ap.add_argument("--modeb_lsd_margin", type=float, default=0.0,
+                    help="LSD margin for the mode-B label (old-recipe runs only); 0 disables it")
     args = ap.parse_args()
 
     runs = {}
@@ -69,13 +70,20 @@ def main():
                 row[f"ood_{os.path.splitext(b)[0]}_pesq"] = float(np.mean(vals))
         runs[name] = row
 
-    # mode A / B label from same-seed baseline LSD
+    # mode A / B label from same-seed baseline LSD (only meaningful for old-recipe runs, where the
+    # bimodality exists; pass --modeb_lsd_margin 0 to disable)
     for name, r in runs.items():
         base = runs.get(f"base_s{r['seed']}")
-        if base and not r["config"].startswith("base"):
+        if args.modeb_lsd_margin > 0 and base and not r["config"].startswith("base"):
             r["mode"] = "B" if abs(r["lsd_db"] - base["lsd_db"]) < args.modeb_lsd_margin else "A"
         else:
             r["mode"] = ""
+    # flag runs whose training never finished
+    for name, r in runs.items():
+        lg = os.path.join(args.runs, name, "log.txt")
+        r["finished"] = os.path.exists(lg) and "training finished" in open(lg, errors="ignore").read()
+        if not r["finished"] and name != "official":
+            print(f"WARNING: {name} did not finish training - its numbers are from a partial run")
 
     # per-run table
     keys = sorted({k for r in runs.values() for k in r}, key=lambda k: (k not in ("run", "config", "seed"), k))

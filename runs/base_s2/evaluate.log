@@ -1,0 +1,67 @@
+2026-09-07 15:35:15 | INFO    | evaluate               | === MHTRA-Net evaluation ===
+2026-09-07 15:35:15 | INFO    | evaluate               | arguments:
+2026-09-07 15:35:15 | INFO    | evaluate               |     ckpt             = D:\mhtra_net\mhtra_fixed\runs\base_s2\best.pt
+2026-09-07 15:35:15 | INFO    | evaluate               |     compare          = ['runs\\official\\test_metrics.csv']
+2026-09-07 15:35:15 | INFO    | evaluate               |     csv              = None
+2026-09-07 15:35:15 | INFO    | evaluate               |     data             = D:\mhtra_net\data\voicebank-demand-16k
+2026-09-07 15:35:15 | INFO    | evaluate               |     log_every        = 200
+2026-09-07 15:35:15 | INFO    | evaluate               |     log_file         = None
+2026-09-07 15:35:15 | INFO    | evaluate               |     log_level        = INFO
+2026-09-07 15:35:15 | INFO    | evaluate               |     macs_seconds     = 10.0
+2026-09-07 15:35:15 | INFO    | evaluate               |     official         = False
+2026-09-07 15:35:15 | INFO    | evaluate               |     pesq_workers     = 8
+2026-09-07 15:35:15 | INFO    | evaluate               |     save_wavs        = None
+2026-09-07 15:35:15 | INFO    | evaluate               |     weights          = model
+2026-09-07 15:35:15 | INFO    | evaluate               | python      3.12.10
+2026-09-07 15:35:15 | INFO    | evaluate               | executable  D:\mhtra_net\mhtra_net\.venv\Scripts\python.exe
+2026-09-07 15:35:15 | INFO    | evaluate               | cwd         D:\mhtra_net\mhtra_fixed
+2026-09-07 15:35:15 | INFO    | evaluate               | numpy       2.5.2
+2026-09-07 15:35:15 | INFO    | evaluate               | torch       2.11.0+cu128 (cuda build: 12.8)
+2026-09-07 15:35:15 | INFO    | evaluate               | gpu         NVIDIA GeForce RTX 5060 Laptop GPU | 8.5 GB | 26 SMs
+2026-09-07 15:35:15 | INFO    | evaluate               | device      cuda
+2026-09-07 15:35:15 | INFO    | evaluate               | loading checkpoint D:\mhtra_net\mhtra_fixed\runs\base_s2\best.pt ...
+2026-09-07 15:35:15 | INFO    | evaluate               | checkpoint from epoch 189 | stored weights: raw | val PESQ 2.367 | val SI-SDR 13.83 dB
+2026-09-07 15:35:15 | INFO    | mhtra_net.model        | MHTRANet built: 23,669 params | 257 freq bins -> 129 ERB bands -> 33 DPGRNN width
+2026-09-07 15:35:15 | INFO    | mhtra_net.model        |   MHTRA=False (heads=4, head_dim=0, window=full causal)  SE=False  learnable_ERB=False  channels=16
+2026-09-07 15:35:15 | INFO    | evaluate               | loading checkpoint D:\mhtra_net\mhtra_fixed\runs\base_s2\best.pt done in 0.2s
+2026-09-07 15:35:15 | INFO    | mhtra_net.stft         | STFT: n_fft=512 hop=256 win=512 (257 freq bins, 16.0 ms hop) on cuda
+2026-09-07 15:35:15 | INFO    | evaluate               | loading test set ...
+2026-09-07 15:35:15 | INFO    | mhtra_net.dataset      | [test] scanning D:\mhtra_net\data\voicebank-demand-16k\clean_testset_wav
+2026-09-07 15:35:15 | INFO    | mhtra_net.dataset      | [test] ready: 824 pairs | full-length utterances | random_gain=False | 16000 Hz
+2026-09-07 15:35:15 | INFO    | evaluate               | loading test set done in 0.0s
+2026-09-07 15:35:15 | INFO    | evaluate               | loaded D:\mhtra_net\mhtra_fixed\runs\base_s2\best.pt: 23,669 params | cfg=MHTRANetConfig(n_fft=512, fs=16000, erb_subband_1=65, erb_subband_2=64, channels=16, num_heads=4, attn_window=None, use_mhtra=False, use_se=False, se_reduction=2, learnable_erb=False, zero_init_out=False)
+2026-09-07 15:35:15 | WARNING | py.warnings            | D:\mhtra_net\mhtra_net\.venv\Lib\site-packages\thop\vision\calc_func.py:53: UserWarning: This API is being deprecated
+  warnings.warn("This API is being deprecated")
+
+2026-09-07 15:35:15 | INFO    | evaluate               | ~30.01 MMACs per second of audio at 10 s input (30.01 counted by thop + 0.00 attention matmuls) - report the input length with this number
+2026-09-07 15:35:21 | INFO    | evaluate               | 200/824 files (24%) | 36.9 files/s | running SI-SDR 18.52 dB | ETA 16.9s
+2026-09-07 15:35:25 | INFO    | evaluate               | 400/824 files (49%) | 39.4 files/s | running SI-SDR 19.04 dB | ETA 10.8s
+2026-09-07 15:35:31 | INFO    | evaluate               | 600/824 files (73%) | 39.2 files/s | running SI-SDR 18.53 dB | ETA 5.7s
+2026-09-07 15:35:35 | INFO    | evaluate               | 800/824 files (97%) | 39.9 files/s | running SI-SDR 18.42 dB | ETA 0.6s
+2026-09-07 15:35:42 | INFO    | evaluate               | PESQ scored in 6.5s with 8 workers
+2026-09-07 15:35:42 | INFO    | evaluate               | processed 824 files (34m 32s of audio) in 27.1s (76.4x real time, model+STOI 20.6s)
+2026-09-07 15:35:42 | INFO    | evaluate               |                 PESQ    STOI   SI-SDR
+2026-09-07 15:35:42 | INFO    | evaluate               | noisy         1.968   0.921     8.45
+2026-09-07 15:35:42 | INFO    | evaluate               | enhanced      2.811   0.936    18.40
+2026-09-07 15:35:42 | INFO    | evaluate               | delta        +0.843  +0.015    +9.95
+2026-09-07 15:35:42 | INFO    | evaluate               | enhanced PESQ 95% bootstrap CI: [2.762, 2.860]
+2026-09-07 15:35:42 | INFO    | evaluate               | by input SNR:   n    PESQ noisy->enh    STOI noisy->enh    SI-SDR noisy->enh
+2026-09-07 15:35:42 | INFO    | evaluate               |    2.5 dB    218    1.454 -> 2.285      0.869 -> 0.900       1.15 -> 14.88
+2026-09-07 15:35:42 | INFO    | evaluate               |    7.5 dB    209    1.738 -> 2.671      0.917 -> 0.935       6.36 -> 17.75
+2026-09-07 15:35:42 | INFO    | evaluate               |   12.5 dB    206    2.150 -> 2.979      0.943 -> 0.951      11.23 -> 19.82
+2026-09-07 15:35:42 | INFO    | evaluate               |   17.5 dB    191    2.609 -> 3.383      0.962 -> 0.964      16.07 -> 21.59
+2026-09-07 15:35:42 | INFO    | evaluate               | diagnostics: residual in pauses +1.68 dB above clean (noisy input: +24.09 dB) | speech-frame LSD 10.80 dB
+2026-09-07 15:35:42 | INFO    | evaluate               | === paired comparison vs official (824 files) ===
+2026-09-07 15:35:42 | INFO    | evaluate               |   (wins = files where THIS run is better; lower is better for pause_resid_db / speech_lsd_db)
+2026-09-07 15:35:42 | INFO    | evaluate               |   pesq_enh       this 2.811  ref 2.856  diff -0.045  CI95 [-0.063, -0.028]  wins 371/824  -> worse
+2026-09-07 15:35:42 | INFO    | evaluate               |   stoi_enh       this 0.936  ref 0.941  diff -0.004  CI95 [-0.006, -0.003]  wins 309/824  -> worse
+2026-09-07 15:35:42 | INFO    | evaluate               |   sisdr_enh      this 18.400  ref 18.796  diff -0.396  CI95 [-0.527, -0.279]  wins 280/824  -> worse
+2026-09-07 15:35:42 | INFO    | evaluate               |   pause_resid_db this 1.682  ref 0.916  diff +0.766  CI95 [+0.439, +1.120]  wins 184/441  -> worse
+2026-09-07 15:35:42 | INFO    | evaluate               |   speech_lsd_db  this 10.799  ref 10.364  diff +0.435  CI95 [+0.339, +0.537]  wins 292/824  -> worse
+2026-09-07 15:35:42 | INFO    | evaluate               |   PESQ difference by input SNR:
+2026-09-07 15:35:42 | INFO    | evaluate               |      2.5 dB  n=218  this 2.285  ref 2.309  diff -0.024
+2026-09-07 15:35:42 | INFO    | evaluate               |      7.5 dB  n=209  this 2.671  ref 2.698  diff -0.027
+2026-09-07 15:35:42 | INFO    | evaluate               |     12.5 dB  n=206  this 2.979  ref 3.048  diff -0.069
+2026-09-07 15:35:42 | INFO    | evaluate               |     17.5 dB  n=191  this 3.383  ref 3.445  diff -0.061
+2026-09-07 15:35:42 | INFO    | evaluate               | per-file metrics -> D:\mhtra_net\mhtra_fixed\runs\base_s2\test_metrics.csv | summary -> D:\mhtra_net\mhtra_fixed\runs\base_s2\test_summary.json
+2026-09-07 15:35:42 | INFO    | evaluate               | === evaluation finished ===

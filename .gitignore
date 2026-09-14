@@ -9,4 +9,3 @@ __pycache__/
 *.pyc
 
 # Training outputs (checkpoints, logs, tensorboard)
-runs/

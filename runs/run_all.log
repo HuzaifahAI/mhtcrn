@@ -185,3 +185,42 @@
 2026-09-15 16:14:28  RESUME h1_wt3_s1 from last.pt (previous run was interrupted)
 2026-09-15 16:14:28  START train h1_wt3_s1
 2026-09-15 16:14:28    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\h1_wt3_s1" --seed 1 --heads 1 --w_time 3 --resume "runs\h1_wt3_s1\last.pt"
+2026-09-15 16:35:36  phases: eval,collect | seeds: 0,1,2,3,4 | data: D:\mhtra_net\data\voicebank-demand-16k | official: D:\mhtra_net\data\gtcrn_official_vctk.tar
+2026-09-15 16:35:36  WARN  h1_wt3_s1 has best.pt but never finished training - NOT evaluated; re-run the training phase to resume it
+2026-09-15 16:35:36  SKIP  eval base_s0 (exists)
+2026-09-15 16:35:36  SKIP  eval base_s1 (exists)
+2026-09-15 16:35:36  SKIP  eval base_s2 (exists)
+2026-09-15 16:35:36  START eval base_wt1_s0
+2026-09-15 16:35:36    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt1_s0\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-15 16:36:10  DONE  eval base_wt1_s0 after 00:00:34
+2026-09-15 16:36:10  START eval base_wt1_s1
+2026-09-15 16:36:10    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt1_s1\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-15 16:36:38  DONE  eval base_wt1_s1 after 00:00:27
+2026-09-15 16:36:38  START eval base_wt1_s2
+2026-09-15 16:36:38    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt1_s2\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-15 16:37:12  DONE  eval base_wt1_s2 after 00:00:33
+2026-09-15 16:37:12  START eval base_wt3_s0
+2026-09-15 16:37:12    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt3_s0\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-15 16:37:41  DONE  eval base_wt3_s0 after 00:00:28
+2026-09-15 16:37:41  START eval base_wt3_s1
+2026-09-15 16:37:41    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt3_s1\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-15 16:38:08  DONE  eval base_wt3_s1 after 00:00:26
+2026-09-15 16:38:08  SKIP  eval h1_s0 (exists)
+2026-09-15 16:38:08  SKIP  eval h1_s1 (exists)
+2026-09-15 16:38:08  SKIP  eval h1_s2 (exists)
+2026-09-15 16:38:08  START eval h1_wt1_s0
+2026-09-15 16:38:08    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s0\best.pt" --macs_seconds 10 --compare "runs\base_wt1_s0\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-15 16:38:39  DONE  eval h1_wt1_s0 after 00:00:31
+2026-09-15 16:38:39  START eval h1_wt1_s1
+2026-09-15 16:38:39    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s1\best.pt" --macs_seconds 10 --compare "runs\base_wt1_s1\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-15 16:39:10  DONE  eval h1_wt1_s1 after 00:00:31
+2026-09-15 16:39:10  START eval h1_wt1_s2
+2026-09-15 16:39:10    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s2\best.pt" --macs_seconds 10 --compare "runs\base_wt1_s2\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-15 16:40:00  DONE  eval h1_wt1_s2 after 00:00:49
+2026-09-15 16:40:00  START eval h1_wt3_s0
+2026-09-15 16:40:00    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s0\best.pt" --macs_seconds 10 --compare "runs\base_wt3_s0\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-15 16:40:35  DONE  eval h1_wt3_s0 after 00:00:35
+2026-09-15 16:40:35  START collect results
+2026-09-15 16:40:35    > python collect_results.py --runs "runs" --out "runs\summary.csv"
+2026-09-15 16:40:38  DONE  collect results after 00:00:02
+2026-09-15 16:40:38  ALL PHASES FINISHED - see runs\summary.csv and runs\run_all.log

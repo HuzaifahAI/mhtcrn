@@ -18,4 +18,4 @@ runs/**
 !runs/*/test_metrics.csv
 !runs/summary.csv
 !runs/summary_by_config.csv
-!runs/run_all.log
+!runs/run_all.log!runs/*/log.txt

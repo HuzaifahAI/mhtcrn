@@ -224,3 +224,142 @@
 2026-09-15 16:40:35    > python collect_results.py --runs "runs" --out "runs\summary.csv"
 2026-09-15 16:40:38  DONE  collect results after 00:00:02
 2026-09-15 16:40:38  ALL PHASES FINISHED - see runs\summary.csv and runs\run_all.log
+2026-09-15 17:52:01  DONE  train h1_wt3_s1 after 01:37:33
+2026-09-15 17:52:01  START train base_wt3_s2
+2026-09-15 17:52:01    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_wt3_s2" --seed 2 --baseline --w_time 3
+2026-09-15 20:34:38  DONE  train base_wt3_s2 after 02:42:36
+2026-09-15 20:34:38  START train h1_wt3_s2
+2026-09-15 20:34:38    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\h1_wt3_s2" --seed 2 --heads 1 --w_time 3
+2026-09-15 23:44:23  DONE  train h1_wt3_s2 after 03:09:45
+2026-09-15 23:44:23  START train base_wt0p3_s0
+2026-09-15 23:44:23    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_wt0p3_s0" --seed 0 --baseline --w_time 0.3
+2026-09-16 02:25:39  DONE  train base_wt0p3_s0 after 02:41:15
+2026-09-16 02:25:39  START train h1_wt0p3_s0
+2026-09-16 02:25:39    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\h1_wt0p3_s0" --seed 0 --heads 1 --w_time 0.3
+2026-09-16 05:27:51  DONE  train h1_wt0p3_s0 after 03:02:12
+2026-09-16 05:27:51  START train base_wt0p3_s1
+2026-09-16 05:27:51    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_wt0p3_s1" --seed 1 --baseline --w_time 0.3
+2026-09-16 08:13:31  DONE  train base_wt0p3_s1 after 02:45:40
+2026-09-16 08:13:31  START train h1_wt0p3_s1
+2026-09-16 08:13:31    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\h1_wt0p3_s1" --seed 1 --heads 1 --w_time 0.3
+2026-09-16 11:24:40  DONE  train h1_wt0p3_s1 after 03:11:08
+2026-09-16 11:24:40  START train base_wt0p3_s2
+2026-09-16 11:24:40    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_wt0p3_s2" --seed 2 --baseline --w_time 0.3
+2026-09-16 12:58:48  phases: sweep,eval,gates,collect | seeds: 0,1,2 | data: D:\mhtra_net\data\voicebank-demand-16k | official: D:\mhtra_net\data\gtcrn_official_vctk.tar
+2026-09-16 12:58:48  SKIP  base_wt1_s0 (training finished)
+2026-09-16 12:58:48  SKIP  h1_wt1_s0 (training finished)
+2026-09-16 12:58:48  SKIP  base_wt1_s1 (training finished)
+2026-09-16 12:58:48  SKIP  h1_wt1_s1 (training finished)
+2026-09-16 12:58:48  SKIP  base_wt1_s2 (training finished)
+2026-09-16 12:58:48  SKIP  h1_wt1_s2 (training finished)
+2026-09-16 12:58:48  SKIP  base_wt3_s0 (training finished)
+2026-09-16 12:58:48  SKIP  h1_wt3_s0 (training finished)
+2026-09-16 12:58:48  SKIP  base_wt3_s1 (training finished)
+2026-09-16 12:58:48  SKIP  h1_wt3_s1 (training finished)
+2026-09-16 12:58:48  SKIP  base_wt3_s2 (training finished)
+2026-09-16 12:58:48  SKIP  h1_wt3_s2 (training finished)
+2026-09-16 12:58:48  SKIP  base_wt0p3_s0 (training finished)
+2026-09-16 12:58:48  SKIP  h1_wt0p3_s0 (training finished)
+2026-09-16 12:58:48  SKIP  base_wt0p3_s1 (training finished)
+2026-09-16 12:58:48  SKIP  h1_wt0p3_s1 (training finished)
+2026-09-16 12:58:48  RESUME base_wt0p3_s2 from last.pt (previous run was interrupted)
+2026-09-16 12:58:48  START train base_wt0p3_s2
+2026-09-16 12:58:48    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\base_wt0p3_s2" --seed 2 --baseline --w_time 0.3 --resume "runs\base_wt0p3_s2\last.pt"
+2026-09-16 15:00:05  DONE  train base_wt0p3_s2 after 02:01:16
+2026-09-16 15:00:05  START train h1_wt0p3_s2
+2026-09-16 15:00:05    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\h1_wt0p3_s2" --seed 2 --heads 1 --w_time 0.3
+2026-09-16 16:55:16  phases: sweep,eval,gates,collect | seeds: 0,1,2 | data: D:\mhtra_net\data\voicebank-demand-16k | official: D:\mhtra_net\data\gtcrn_official_vctk.tar
+2026-09-16 16:55:16  SKIP  base_wt1_s0 (training finished)
+2026-09-16 16:55:16  SKIP  h1_wt1_s0 (training finished)
+2026-09-16 16:55:16  SKIP  base_wt1_s1 (training finished)
+2026-09-16 16:55:16  SKIP  h1_wt1_s1 (training finished)
+2026-09-16 16:55:16  SKIP  base_wt1_s2 (training finished)
+2026-09-16 16:55:16  SKIP  h1_wt1_s2 (training finished)
+2026-09-16 16:55:16  SKIP  base_wt3_s0 (training finished)
+2026-09-16 16:55:16  SKIP  h1_wt3_s0 (training finished)
+2026-09-16 16:55:16  SKIP  base_wt3_s1 (training finished)
+2026-09-16 16:55:16  SKIP  h1_wt3_s1 (training finished)
+2026-09-16 16:55:16  SKIP  base_wt3_s2 (training finished)
+2026-09-16 16:55:16  SKIP  h1_wt3_s2 (training finished)
+2026-09-16 16:55:16  SKIP  base_wt0p3_s0 (training finished)
+2026-09-16 16:55:16  SKIP  h1_wt0p3_s0 (training finished)
+2026-09-16 16:55:16  SKIP  base_wt0p3_s1 (training finished)
+2026-09-16 16:55:16  SKIP  h1_wt0p3_s1 (training finished)
+2026-09-16 16:55:16  SKIP  base_wt0p3_s2 (training finished)
+2026-09-16 16:55:16  RESUME h1_wt0p3_s2 from last.pt (previous run was interrupted)
+2026-09-16 16:55:16  START train h1_wt0p3_s2
+2026-09-16 16:55:16    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\h1_wt0p3_s2" --seed 2 --heads 1 --w_time 0.3 --resume "runs\h1_wt0p3_s2\last.pt"
+2026-09-16 19:13:08  DONE  train h1_wt0p3_s2 after 02:17:51
+2026-09-16 19:13:09  SKIP  eval base_s0 (exists)
+2026-09-16 19:13:09  SKIP  eval base_s1 (exists)
+2026-09-16 19:13:09  SKIP  eval base_s2 (exists)
+2026-09-16 19:13:09  START eval base_wt0p3_s0
+2026-09-16 19:13:09    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt0p3_s0\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-16 19:15:41  DONE  eval base_wt0p3_s0 after 00:02:32
+2026-09-16 19:15:41  START eval base_wt0p3_s1
+2026-09-16 19:15:41    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt0p3_s1\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-16 19:16:14  DONE  eval base_wt0p3_s1 after 00:00:32
+2026-09-16 19:16:14  START eval base_wt0p3_s2
+2026-09-16 19:16:14    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt0p3_s2\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-16 19:16:47  DONE  eval base_wt0p3_s2 after 00:00:33
+2026-09-16 19:16:47  SKIP  eval base_wt1_s0 (exists)
+2026-09-16 19:16:47  SKIP  eval base_wt1_s1 (exists)
+2026-09-16 19:16:47  SKIP  eval base_wt1_s2 (exists)
+2026-09-16 19:16:47  SKIP  eval base_wt3_s0 (exists)
+2026-09-16 19:16:47  SKIP  eval base_wt3_s1 (exists)
+2026-09-16 19:16:47  START eval base_wt3_s2
+2026-09-16 19:16:47    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\base_wt3_s2\best.pt" --macs_seconds 10 --compare "runs\official\test_metrics.csv"
+2026-09-16 19:17:21  DONE  eval base_wt3_s2 after 00:00:33
+2026-09-16 19:17:21  SKIP  eval h1_s0 (exists)
+2026-09-16 19:17:21  SKIP  eval h1_s1 (exists)
+2026-09-16 19:17:21  SKIP  eval h1_s2 (exists)
+2026-09-16 19:17:21  START eval h1_wt0p3_s0
+2026-09-16 19:17:21    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s0\best.pt" --macs_seconds 10 --compare "runs\base_wt0p3_s0\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-16 19:17:57  DONE  eval h1_wt0p3_s0 after 00:00:36
+2026-09-16 19:17:57  START eval h1_wt0p3_s1
+2026-09-16 19:17:57    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s1\best.pt" --macs_seconds 10 --compare "runs\base_wt0p3_s1\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-16 19:18:33  DONE  eval h1_wt0p3_s1 after 00:00:36
+2026-09-16 19:18:33  START eval h1_wt0p3_s2
+2026-09-16 19:18:33    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s2\best.pt" --macs_seconds 10 --compare "runs\base_wt0p3_s2\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-16 19:19:09  DONE  eval h1_wt0p3_s2 after 00:00:36
+2026-09-16 19:19:09  SKIP  eval h1_wt1_s0 (exists)
+2026-09-16 19:19:09  SKIP  eval h1_wt1_s1 (exists)
+2026-09-16 19:19:09  SKIP  eval h1_wt1_s2 (exists)
+2026-09-16 19:19:09  SKIP  eval h1_wt3_s0 (exists)
+2026-09-16 19:19:09  START eval h1_wt3_s1
+2026-09-16 19:19:09    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s1\best.pt" --macs_seconds 10 --compare "runs\base_wt3_s1\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-16 19:19:45  DONE  eval h1_wt3_s1 after 00:00:36
+2026-09-16 19:19:45  START eval h1_wt3_s2
+2026-09-16 19:19:45    > python evaluate.py --data "D:\mhtra_net\data\voicebank-demand-16k" --ckpt "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s2\best.pt" --macs_seconds 10 --compare "runs\base_wt3_s2\test_metrics.csv" "runs\official\test_metrics.csv"
+2026-09-16 19:20:22  DONE  eval h1_wt3_s2 after 00:00:36
+2026-09-16 19:20:22  START gates h1_wt0p3_s0
+2026-09-16 19:20:22    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s0\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s0\gate_stats.csv"
+2026-09-16 19:20:24  DONE  gates h1_wt0p3_s0 after 00:00:01
+2026-09-16 19:20:24  START gates h1_wt0p3_s1
+2026-09-16 19:20:24    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s1\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s1\gate_stats.csv"
+2026-09-16 19:20:26  DONE  gates h1_wt0p3_s1 after 00:00:02
+2026-09-16 19:20:26  START gates h1_wt0p3_s2
+2026-09-16 19:20:26    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s2\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt0p3_s2\gate_stats.csv"
+2026-09-16 19:20:28  DONE  gates h1_wt0p3_s2 after 00:00:02
+2026-09-16 19:20:28  START gates h1_wt1_s0
+2026-09-16 19:20:28    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s0\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s0\gate_stats.csv"
+2026-09-16 19:20:31  DONE  gates h1_wt1_s0 after 00:00:02
+2026-09-16 19:20:31  START gates h1_wt1_s1
+2026-09-16 19:20:31    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s1\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s1\gate_stats.csv"
+2026-09-16 19:20:33  DONE  gates h1_wt1_s1 after 00:00:02
+2026-09-16 19:20:33  START gates h1_wt1_s2
+2026-09-16 19:20:33    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s2\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt1_s2\gate_stats.csv"
+2026-09-16 19:20:36  DONE  gates h1_wt1_s2 after 00:00:02
+2026-09-16 19:20:36  START gates h1_wt3_s0
+2026-09-16 19:20:36    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s0\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s0\gate_stats.csv"
+2026-09-16 19:20:38  DONE  gates h1_wt3_s0 after 00:00:02
+2026-09-16 19:20:38  START gates h1_wt3_s1
+2026-09-16 19:20:38    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s1\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s1\gate_stats.csv"
+2026-09-16 19:20:41  DONE  gates h1_wt3_s1 after 00:00:02
+2026-09-16 19:20:41  START gates h1_wt3_s2
+2026-09-16 19:20:41    > python gate_stats.py "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s2\best.pt" "D:\mhtra_net\data\voicebank-demand-16k\noisy_testset_wav\p232_001.wav" --csv "D:\mhtra_net\mhtra_fixed\runs\h1_wt3_s2\gate_stats.csv"
+2026-09-16 19:20:43  DONE  gates h1_wt3_s2 after 00:00:02
+2026-09-16 19:20:43  START collect results
+2026-09-16 19:20:43    > python collect_results.py --runs "runs" --out "runs\summary.csv"
+2026-09-16 19:20:44  DONE  collect results after 00:00:01
+2026-09-16 19:20:44  ALL PHASES FINISHED - see runs\summary.csv and runs\run_all.log

@@ -1,4 +1,4 @@
-# Datasets (downloaded locally, never pushed)
+﻿# Datasets (downloaded locally, never pushed)
 LibriSpeech/
 DNS-Challenge/
 *.flac
@@ -8,7 +8,7 @@ DNS-Challenge/
 __pycache__/
 *.pyc
 
-# Training outputs: ignore checkpoints / tensorboard / logs, keep only the small summaries
+# Training outputs: ignore checkpoints / tensorboard, keep the small summaries and logs
 runs/**
 !runs/
 !runs/*/
@@ -16,6 +16,7 @@ runs/**
 !runs/*/gate_stats.csv
 !runs/*/config.json
 !runs/*/test_metrics.csv
+!runs/*/log.txt
 !runs/summary.csv
 !runs/summary_by_config.csv
-!runs/run_all.log!runs/*/log.txt
+!runs/run_all.log

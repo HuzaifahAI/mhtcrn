@@ -363,3 +363,396 @@
 2026-09-16 19:20:43    > python collect_results.py --runs "runs" --out "runs\summary.csv"
 2026-09-16 19:20:44  DONE  collect results after 00:00:01
 2026-09-16 19:20:44  ALL PHASES FINISHED - see runs\summary.csv and runs\run_all.log
+2026-09-16 23:50:57  phases: probe | seeds: 0,1,2,3,4 | data: D:\mhtra_net\data\voicebank-demand-16k | official: D:\mhtra_net\data\gtcrn_official_vctk.tar
+2026-09-16 23:50:57  START train probe_base_wt1_s0
+2026-09-16 23:50:57    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s0" --seed 0 --baseline --w_time 1 --stop_epoch 6
+2026-09-16 23:59:10  DONE  train probe_base_wt1_s0 after 00:08:13
+2026-09-16 23:59:10  START train probe_h1_wt1_s0
+2026-09-16 23:59:10    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s0" --seed 0 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 00:05:25  DONE  train probe_h1_wt1_s0 after 00:06:14
+2026-09-17 00:05:25  START train probe_h1zero_wt1_s0
+2026-09-17 00:05:25    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s0" --seed 0 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 00:11:42  DONE  train probe_h1zero_wt1_s0 after 00:06:16
+2026-09-17 00:11:42  START train probe_seonly_wt1_s0
+2026-09-17 00:11:42    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s0" --seed 0 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 00:18:00  DONE  train probe_seonly_wt1_s0 after 00:06:18
+2026-09-17 00:18:00  START train probe_attnonly_wt1_s0
+2026-09-17 00:18:00    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s0" --seed 0 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 00:24:38  DONE  train probe_attnonly_wt1_s0 after 00:06:37
+2026-09-17 00:24:38  START train probe_base_wt1_s1
+2026-09-17 00:24:38    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s1" --seed 1 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 00:30:43  DONE  train probe_base_wt1_s1 after 00:06:04
+2026-09-17 00:30:43  START train probe_h1_wt1_s1
+2026-09-17 00:30:43    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s1" --seed 1 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 00:37:36  DONE  train probe_h1_wt1_s1 after 00:06:53
+2026-09-17 00:37:36  START train probe_h1zero_wt1_s1
+2026-09-17 00:37:36    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s1" --seed 1 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 00:44:30  DONE  train probe_h1zero_wt1_s1 after 00:06:53
+2026-09-17 00:44:30  START train probe_seonly_wt1_s1
+2026-09-17 00:44:30    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s1" --seed 1 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 00:50:53  DONE  train probe_seonly_wt1_s1 after 00:06:23
+2026-09-17 00:50:53  START train probe_attnonly_wt1_s1
+2026-09-17 00:50:53    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s1" --seed 1 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 00:57:29  DONE  train probe_attnonly_wt1_s1 after 00:06:36
+2026-09-17 00:57:29  START train probe_base_wt1_s2
+2026-09-17 00:57:29    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s2" --seed 2 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 01:03:29  DONE  train probe_base_wt1_s2 after 00:06:00
+2026-09-17 01:03:29  START train probe_h1_wt1_s2
+2026-09-17 01:03:29    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s2" --seed 2 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 01:10:26  DONE  train probe_h1_wt1_s2 after 00:06:56
+2026-09-17 01:10:26  START train probe_h1zero_wt1_s2
+2026-09-17 01:10:26    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s2" --seed 2 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 01:17:23  DONE  train probe_h1zero_wt1_s2 after 00:06:57
+2026-09-17 01:17:23  START train probe_seonly_wt1_s2
+2026-09-17 01:17:23    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s2" --seed 2 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 01:23:44  DONE  train probe_seonly_wt1_s2 after 00:06:21
+2026-09-17 01:23:44  START train probe_attnonly_wt1_s2
+2026-09-17 01:23:44    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s2" --seed 2 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 01:30:20  DONE  train probe_attnonly_wt1_s2 after 00:06:35
+2026-09-17 01:30:20  START train probe_base_wt1_s3
+2026-09-17 01:30:20    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s3" --seed 3 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 01:36:21  DONE  train probe_base_wt1_s3 after 00:06:00
+2026-09-17 01:36:21  START train probe_h1_wt1_s3
+2026-09-17 01:36:21    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s3" --seed 3 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 01:43:18  DONE  train probe_h1_wt1_s3 after 00:06:57
+2026-09-17 01:43:18  START train probe_h1zero_wt1_s3
+2026-09-17 01:43:18    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s3" --seed 3 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 01:50:14  DONE  train probe_h1zero_wt1_s3 after 00:06:55
+2026-09-17 01:50:14  START train probe_seonly_wt1_s3
+2026-09-17 01:50:14    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s3" --seed 3 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 01:56:35  DONE  train probe_seonly_wt1_s3 after 00:06:21
+2026-09-17 01:56:35  START train probe_attnonly_wt1_s3
+2026-09-17 01:56:35    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s3" --seed 3 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 02:03:10  DONE  train probe_attnonly_wt1_s3 after 00:06:34
+2026-09-17 02:03:10  START train probe_base_wt1_s4
+2026-09-17 02:03:10    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s4" --seed 4 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 02:09:14  DONE  train probe_base_wt1_s4 after 00:06:03
+2026-09-17 02:09:14  START train probe_h1_wt1_s4
+2026-09-17 02:09:14    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s4" --seed 4 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 02:16:06  DONE  train probe_h1_wt1_s4 after 00:06:52
+2026-09-17 02:16:06  START train probe_h1zero_wt1_s4
+2026-09-17 02:16:06    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s4" --seed 4 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 02:22:56  DONE  train probe_h1zero_wt1_s4 after 00:06:50
+2026-09-17 02:22:56  START train probe_seonly_wt1_s4
+2026-09-17 02:22:56    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s4" --seed 4 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 02:29:15  DONE  train probe_seonly_wt1_s4 after 00:06:19
+2026-09-17 02:29:15  START train probe_attnonly_wt1_s4
+2026-09-17 02:29:15    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s4" --seed 4 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 02:35:49  DONE  train probe_attnonly_wt1_s4 after 00:06:34
+2026-09-17 02:35:49  START train probe_base_wt1_s5
+2026-09-17 02:35:49    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s5" --seed 5 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 02:41:54  DONE  train probe_base_wt1_s5 after 00:06:04
+2026-09-17 02:41:54  START train probe_h1_wt1_s5
+2026-09-17 02:41:54    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s5" --seed 5 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 02:48:46  DONE  train probe_h1_wt1_s5 after 00:06:52
+2026-09-17 02:48:46  START train probe_h1zero_wt1_s5
+2026-09-17 02:48:46    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s5" --seed 5 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 02:55:38  DONE  train probe_h1zero_wt1_s5 after 00:06:51
+2026-09-17 02:55:38  START train probe_seonly_wt1_s5
+2026-09-17 02:55:38    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s5" --seed 5 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 03:01:59  DONE  train probe_seonly_wt1_s5 after 00:06:20
+2026-09-17 03:01:59  START train probe_attnonly_wt1_s5
+2026-09-17 03:01:59    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s5" --seed 5 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 03:08:34  DONE  train probe_attnonly_wt1_s5 after 00:06:35
+2026-09-17 03:08:34  START train probe_base_wt1_s6
+2026-09-17 03:08:34    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s6" --seed 6 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 03:14:36  DONE  train probe_base_wt1_s6 after 00:06:02
+2026-09-17 03:14:36  START train probe_h1_wt1_s6
+2026-09-17 03:14:36    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s6" --seed 6 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 03:21:27  DONE  train probe_h1_wt1_s6 after 00:06:50
+2026-09-17 03:21:27  START train probe_h1zero_wt1_s6
+2026-09-17 03:21:27    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s6" --seed 6 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 03:28:22  DONE  train probe_h1zero_wt1_s6 after 00:06:54
+2026-09-17 03:28:22  START train probe_seonly_wt1_s6
+2026-09-17 03:28:22    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s6" --seed 6 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 03:34:41  DONE  train probe_seonly_wt1_s6 after 00:06:19
+2026-09-17 03:34:41  START train probe_attnonly_wt1_s6
+2026-09-17 03:34:41    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s6" --seed 6 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 03:41:16  DONE  train probe_attnonly_wt1_s6 after 00:06:34
+2026-09-17 03:41:16  START train probe_base_wt1_s7
+2026-09-17 03:41:16    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s7" --seed 7 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 03:47:16  DONE  train probe_base_wt1_s7 after 00:06:00
+2026-09-17 03:47:16  START train probe_h1_wt1_s7
+2026-09-17 03:47:16    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s7" --seed 7 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 03:54:19  DONE  train probe_h1_wt1_s7 after 00:07:02
+2026-09-17 03:54:19  START train probe_h1zero_wt1_s7
+2026-09-17 03:54:19    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s7" --seed 7 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 04:01:23  DONE  train probe_h1zero_wt1_s7 after 00:07:03
+2026-09-17 04:01:23  START train probe_seonly_wt1_s7
+2026-09-17 04:01:23    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s7" --seed 7 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 04:07:49  DONE  train probe_seonly_wt1_s7 after 00:06:25
+2026-09-17 04:07:49  START train probe_attnonly_wt1_s7
+2026-09-17 04:07:49    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s7" --seed 7 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 04:14:29  DONE  train probe_attnonly_wt1_s7 after 00:06:39
+2026-09-17 04:14:29  START train probe_base_wt1_s8
+2026-09-17 04:14:29    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s8" --seed 8 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 04:20:36  DONE  train probe_base_wt1_s8 after 00:06:06
+2026-09-17 04:20:36  START train probe_h1_wt1_s8
+2026-09-17 04:20:36    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s8" --seed 8 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 04:27:37  DONE  train probe_h1_wt1_s8 after 00:07:01
+2026-09-17 04:27:37  START train probe_h1zero_wt1_s8
+2026-09-17 04:27:37    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s8" --seed 8 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 04:34:38  DONE  train probe_h1zero_wt1_s8 after 00:07:00
+2026-09-17 04:34:38  START train probe_seonly_wt1_s8
+2026-09-17 04:34:38    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s8" --seed 8 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 04:41:01  DONE  train probe_seonly_wt1_s8 after 00:06:23
+2026-09-17 04:41:01  START train probe_attnonly_wt1_s8
+2026-09-17 04:41:01    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s8" --seed 8 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 04:47:45  DONE  train probe_attnonly_wt1_s8 after 00:06:43
+2026-09-17 04:47:45  START train probe_base_wt1_s9
+2026-09-17 04:47:45    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt1_s9" --seed 9 --baseline --w_time 1 --stop_epoch 6
+2026-09-17 04:53:50  DONE  train probe_base_wt1_s9 after 00:06:05
+2026-09-17 04:53:50  START train probe_h1_wt1_s9
+2026-09-17 04:53:50    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt1_s9" --seed 9 --heads 1 --w_time 1 --stop_epoch 6
+2026-09-17 05:01:02  DONE  train probe_h1_wt1_s9 after 00:07:11
+2026-09-17 05:01:02  START train probe_h1zero_wt1_s9
+2026-09-17 05:01:02    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt1_s9" --seed 9 --heads 1 --zero_init_out --w_time 1 --stop_epoch 6
+2026-09-17 05:08:16  DONE  train probe_h1zero_wt1_s9 after 00:07:14
+2026-09-17 05:08:16  START train probe_seonly_wt1_s9
+2026-09-17 05:08:16    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt1_s9" --seed 9 --no_mhtra --w_time 1 --stop_epoch 6
+2026-09-17 05:14:52  DONE  train probe_seonly_wt1_s9 after 00:06:35
+2026-09-17 05:14:52  START train probe_attnonly_wt1_s9
+2026-09-17 05:14:52    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt1_s9" --seed 9 --heads 1 --no_se --w_time 1 --stop_epoch 6
+2026-09-17 05:21:42  DONE  train probe_attnonly_wt1_s9 after 00:06:49
+2026-09-17 05:21:42  START train probe_base_wt0p3_s0
+2026-09-17 05:21:42    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s0" --seed 0 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 05:27:53  DONE  train probe_base_wt0p3_s0 after 00:06:10
+2026-09-17 05:27:53  START train probe_h1_wt0p3_s0
+2026-09-17 05:27:53    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s0" --seed 0 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 05:34:47  DONE  train probe_h1_wt0p3_s0 after 00:06:54
+2026-09-17 05:34:47  START train probe_h1zero_wt0p3_s0
+2026-09-17 05:34:47    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s0" --seed 0 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 05:41:43  DONE  train probe_h1zero_wt0p3_s0 after 00:06:56
+2026-09-17 05:41:43  START train probe_seonly_wt0p3_s0
+2026-09-17 05:41:43    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s0" --seed 0 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 05:48:09  DONE  train probe_seonly_wt0p3_s0 after 00:06:26
+2026-09-17 05:48:09  START train probe_attnonly_wt0p3_s0
+2026-09-17 05:48:09    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s0" --seed 0 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 05:54:51  DONE  train probe_attnonly_wt0p3_s0 after 00:06:41
+2026-09-17 05:54:51  START train probe_base_wt0p3_s1
+2026-09-17 05:54:51    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s1" --seed 1 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 06:00:59  DONE  train probe_base_wt0p3_s1 after 00:06:08
+2026-09-17 06:00:59  START train probe_h1_wt0p3_s1
+2026-09-17 06:00:59    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s1" --seed 1 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 06:07:55  DONE  train probe_h1_wt0p3_s1 after 00:06:55
+2026-09-17 06:07:55  START train probe_h1zero_wt0p3_s1
+2026-09-17 06:07:55    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s1" --seed 1 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 06:14:50  DONE  train probe_h1zero_wt0p3_s1 after 00:06:55
+2026-09-17 06:14:50  START train probe_seonly_wt0p3_s1
+2026-09-17 06:14:50    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s1" --seed 1 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 06:21:19  DONE  train probe_seonly_wt0p3_s1 after 00:06:28
+2026-09-17 06:21:19  START train probe_attnonly_wt0p3_s1
+2026-09-17 06:21:19    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s1" --seed 1 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 06:28:03  DONE  train probe_attnonly_wt0p3_s1 after 00:06:44
+2026-09-17 06:28:03  START train probe_base_wt0p3_s2
+2026-09-17 06:28:03    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s2" --seed 2 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 06:34:10  DONE  train probe_base_wt0p3_s2 after 00:06:07
+2026-09-17 06:34:10  START train probe_h1_wt0p3_s2
+2026-09-17 06:34:10    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s2" --seed 2 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 06:41:14  DONE  train probe_h1_wt0p3_s2 after 00:07:03
+2026-09-17 06:41:14  START train probe_h1zero_wt0p3_s2
+2026-09-17 06:41:14    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s2" --seed 2 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 06:48:12  DONE  train probe_h1zero_wt0p3_s2 after 00:06:58
+2026-09-17 06:48:12  START train probe_seonly_wt0p3_s2
+2026-09-17 06:48:12    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s2" --seed 2 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 06:54:39  DONE  train probe_seonly_wt0p3_s2 after 00:06:26
+2026-09-17 06:54:39  START train probe_attnonly_wt0p3_s2
+2026-09-17 06:54:39    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s2" --seed 2 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 07:01:19  DONE  train probe_attnonly_wt0p3_s2 after 00:06:40
+2026-09-17 07:01:19  START train probe_base_wt0p3_s3
+2026-09-17 07:01:19    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s3" --seed 3 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 07:07:20  DONE  train probe_base_wt0p3_s3 after 00:06:00
+2026-09-17 07:07:20  START train probe_h1_wt0p3_s3
+2026-09-17 07:07:20    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s3" --seed 3 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 07:14:21  DONE  train probe_h1_wt0p3_s3 after 00:07:00
+2026-09-17 07:14:21  START train probe_h1zero_wt0p3_s3
+2026-09-17 07:14:21    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s3" --seed 3 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 07:21:23  DONE  train probe_h1zero_wt0p3_s3 after 00:07:01
+2026-09-17 07:21:23  START train probe_seonly_wt0p3_s3
+2026-09-17 07:21:23    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s3" --seed 3 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 07:27:50  DONE  train probe_seonly_wt0p3_s3 after 00:06:27
+2026-09-17 07:27:50  START train probe_attnonly_wt0p3_s3
+2026-09-17 07:27:50    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s3" --seed 3 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 07:34:27  DONE  train probe_attnonly_wt0p3_s3 after 00:06:37
+2026-09-17 07:34:27  START train probe_base_wt0p3_s4
+2026-09-17 07:34:27    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s4" --seed 4 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 07:40:40  DONE  train probe_base_wt0p3_s4 after 00:06:12
+2026-09-17 07:40:40  START train probe_h1_wt0p3_s4
+2026-09-17 07:40:40    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s4" --seed 4 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 07:47:36  DONE  train probe_h1_wt0p3_s4 after 00:06:55
+2026-09-17 07:47:36  START train probe_h1zero_wt0p3_s4
+2026-09-17 07:47:36    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s4" --seed 4 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 07:54:31  DONE  train probe_h1zero_wt0p3_s4 after 00:06:55
+2026-09-17 07:54:31  START train probe_seonly_wt0p3_s4
+2026-09-17 07:54:31    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s4" --seed 4 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 08:00:53  DONE  train probe_seonly_wt0p3_s4 after 00:06:22
+2026-09-17 08:00:53  START train probe_attnonly_wt0p3_s4
+2026-09-17 08:00:53    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s4" --seed 4 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 08:07:40  DONE  train probe_attnonly_wt0p3_s4 after 00:06:46
+2026-09-17 08:07:40  START train probe_base_wt0p3_s5
+2026-09-17 08:07:40    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s5" --seed 5 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 08:13:54  DONE  train probe_base_wt0p3_s5 after 00:06:14
+2026-09-17 08:13:54  START train probe_h1_wt0p3_s5
+2026-09-17 08:13:54    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s5" --seed 5 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 08:20:50  DONE  train probe_h1_wt0p3_s5 after 00:06:55
+2026-09-17 08:20:50  START train probe_h1zero_wt0p3_s5
+2026-09-17 08:20:50    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s5" --seed 5 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 08:27:46  DONE  train probe_h1zero_wt0p3_s5 after 00:06:56
+2026-09-17 08:27:46  START train probe_seonly_wt0p3_s5
+2026-09-17 08:27:46    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s5" --seed 5 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 08:33:39  DONE  train probe_seonly_wt0p3_s5 after 00:05:52
+2026-09-17 08:33:39  START train probe_attnonly_wt0p3_s5
+2026-09-17 08:33:39    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s5" --seed 5 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 08:39:42  DONE  train probe_attnonly_wt0p3_s5 after 00:06:03
+2026-09-17 08:39:42  START train probe_base_wt0p3_s6
+2026-09-17 08:39:42    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s6" --seed 6 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 08:45:19  DONE  train probe_base_wt0p3_s6 after 00:05:36
+2026-09-17 08:45:19  START train probe_h1_wt0p3_s6
+2026-09-17 08:45:19    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s6" --seed 6 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 08:51:41  DONE  train probe_h1_wt0p3_s6 after 00:06:22
+2026-09-17 08:51:41  START train probe_h1zero_wt0p3_s6
+2026-09-17 08:51:41    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s6" --seed 6 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 08:57:59  DONE  train probe_h1zero_wt0p3_s6 after 00:06:17
+2026-09-17 08:57:59  START train probe_seonly_wt0p3_s6
+2026-09-17 08:57:59    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s6" --seed 6 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 09:03:54  DONE  train probe_seonly_wt0p3_s6 after 00:05:55
+2026-09-17 09:03:54  START train probe_attnonly_wt0p3_s6
+2026-09-17 09:03:54    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s6" --seed 6 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 09:09:58  DONE  train probe_attnonly_wt0p3_s6 after 00:06:03
+2026-09-17 09:09:58  START train probe_base_wt0p3_s7
+2026-09-17 09:09:58    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s7" --seed 7 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 09:15:34  DONE  train probe_base_wt0p3_s7 after 00:05:35
+2026-09-17 09:15:34  START train probe_h1_wt0p3_s7
+2026-09-17 09:15:34    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s7" --seed 7 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 09:21:53  DONE  train probe_h1_wt0p3_s7 after 00:06:18
+2026-09-17 09:21:53  START train probe_h1zero_wt0p3_s7
+2026-09-17 09:21:53    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s7" --seed 7 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 09:28:36  DONE  train probe_h1zero_wt0p3_s7 after 00:06:43
+2026-09-17 09:28:36  START train probe_seonly_wt0p3_s7
+2026-09-17 09:28:36    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s7" --seed 7 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 09:35:09  DONE  train probe_seonly_wt0p3_s7 after 00:06:32
+2026-09-17 09:35:09  START train probe_attnonly_wt0p3_s7
+2026-09-17 09:35:09    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s7" --seed 7 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 09:41:51  DONE  train probe_attnonly_wt0p3_s7 after 00:06:41
+2026-09-17 09:41:51  START train probe_base_wt0p3_s8
+2026-09-17 09:41:51    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s8" --seed 8 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 09:47:58  DONE  train probe_base_wt0p3_s8 after 00:06:07
+2026-09-17 09:47:58  START train probe_h1_wt0p3_s8
+2026-09-17 09:47:58    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s8" --seed 8 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 09:55:04  DONE  train probe_h1_wt0p3_s8 after 00:07:05
+2026-09-17 09:55:04  START train probe_h1zero_wt0p3_s8
+2026-09-17 09:55:04    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s8" --seed 8 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 10:02:13  DONE  train probe_h1zero_wt0p3_s8 after 00:07:09
+2026-09-17 10:02:13  START train probe_seonly_wt0p3_s8
+2026-09-17 10:02:13    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s8" --seed 8 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 10:08:40  DONE  train probe_seonly_wt0p3_s8 after 00:06:27
+2026-09-17 10:08:40  START train probe_attnonly_wt0p3_s8
+2026-09-17 10:08:40    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s8" --seed 8 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 10:15:30  DONE  train probe_attnonly_wt0p3_s8 after 00:06:49
+2026-09-17 10:15:30  START train probe_base_wt0p3_s9
+2026-09-17 10:15:30    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt0p3_s9" --seed 9 --baseline --w_time 0.3 --stop_epoch 6
+2026-09-17 10:21:39  DONE  train probe_base_wt0p3_s9 after 00:06:08
+2026-09-17 10:21:39  START train probe_h1_wt0p3_s9
+2026-09-17 10:21:39    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt0p3_s9" --seed 9 --heads 1 --w_time 0.3 --stop_epoch 6
+2026-09-17 10:28:48  DONE  train probe_h1_wt0p3_s9 after 00:07:09
+2026-09-17 10:28:48  START train probe_h1zero_wt0p3_s9
+2026-09-17 10:28:48    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt0p3_s9" --seed 9 --heads 1 --zero_init_out --w_time 0.3 --stop_epoch 6
+2026-09-17 10:35:57  DONE  train probe_h1zero_wt0p3_s9 after 00:07:08
+2026-09-17 10:35:57  START train probe_seonly_wt0p3_s9
+2026-09-17 10:35:57    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt0p3_s9" --seed 9 --no_mhtra --w_time 0.3 --stop_epoch 6
+2026-09-17 10:42:31  DONE  train probe_seonly_wt0p3_s9 after 00:06:33
+2026-09-17 10:42:31  START train probe_attnonly_wt0p3_s9
+2026-09-17 10:42:31    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt0p3_s9" --seed 9 --heads 1 --no_se --w_time 0.3 --stop_epoch 6
+2026-09-17 10:49:24  DONE  train probe_attnonly_wt0p3_s9 after 00:06:53
+2026-09-17 10:49:24  START train probe_base_wt3_s0
+2026-09-17 10:49:24    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt3_s0" --seed 0 --baseline --w_time 3 --stop_epoch 6
+2026-09-17 10:55:35  DONE  train probe_base_wt3_s0 after 00:06:10
+2026-09-17 10:55:35  START train probe_h1_wt3_s0
+2026-09-17 10:55:35    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt3_s0" --seed 0 --heads 1 --w_time 3 --stop_epoch 6
+2026-09-17 11:02:40  DONE  train probe_h1_wt3_s0 after 00:07:04
+2026-09-17 11:02:40  START train probe_h1zero_wt3_s0
+2026-09-17 11:02:40    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt3_s0" --seed 0 --heads 1 --zero_init_out --w_time 3 --stop_epoch 6
+2026-09-17 11:09:48  DONE  train probe_h1zero_wt3_s0 after 00:07:07
+2026-09-17 11:09:48  START train probe_seonly_wt3_s0
+2026-09-17 11:09:48    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt3_s0" --seed 0 --no_mhtra --w_time 3 --stop_epoch 6
+2026-09-17 11:16:19  DONE  train probe_seonly_wt3_s0 after 00:06:31
+2026-09-17 11:16:19  START train probe_attnonly_wt3_s0
+2026-09-17 11:16:19    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt3_s0" --seed 0 --heads 1 --no_se --w_time 3 --stop_epoch 6
+2026-09-17 11:23:06  DONE  train probe_attnonly_wt3_s0 after 00:06:46
+2026-09-17 11:23:06  START train probe_base_wt3_s1
+2026-09-17 11:23:06    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt3_s1" --seed 1 --baseline --w_time 3 --stop_epoch 6
+2026-09-17 11:29:18  DONE  train probe_base_wt3_s1 after 00:06:11
+2026-09-17 11:29:18  START train probe_h1_wt3_s1
+2026-09-17 11:29:18    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt3_s1" --seed 1 --heads 1 --w_time 3 --stop_epoch 6
+2026-09-17 11:36:19  DONE  train probe_h1_wt3_s1 after 00:07:01
+2026-09-17 11:36:19  START train probe_h1zero_wt3_s1
+2026-09-17 11:36:19    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt3_s1" --seed 1 --heads 1 --zero_init_out --w_time 3 --stop_epoch 6
+2026-09-17 11:43:21  DONE  train probe_h1zero_wt3_s1 after 00:07:02
+2026-09-17 11:43:21  START train probe_seonly_wt3_s1
+2026-09-17 11:43:21    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt3_s1" --seed 1 --no_mhtra --w_time 3 --stop_epoch 6
+2026-09-17 11:49:51  DONE  train probe_seonly_wt3_s1 after 00:06:30
+2026-09-17 11:49:51  START train probe_attnonly_wt3_s1
+2026-09-17 11:49:51    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt3_s1" --seed 1 --heads 1 --no_se --w_time 3 --stop_epoch 6
+2026-09-17 11:56:37  DONE  train probe_attnonly_wt3_s1 after 00:06:45
+2026-09-17 11:56:37  START train probe_base_wt3_s2
+2026-09-17 11:56:37    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt3_s2" --seed 2 --baseline --w_time 3 --stop_epoch 6
+2026-09-17 12:02:48  DONE  train probe_base_wt3_s2 after 00:06:10
+2026-09-17 12:02:48  START train probe_h1_wt3_s2
+2026-09-17 12:02:48    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt3_s2" --seed 2 --heads 1 --w_time 3 --stop_epoch 6
+2026-09-17 12:09:49  DONE  train probe_h1_wt3_s2 after 00:07:01
+2026-09-17 12:09:49  START train probe_h1zero_wt3_s2
+2026-09-17 12:09:49    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt3_s2" --seed 2 --heads 1 --zero_init_out --w_time 3 --stop_epoch 6
+2026-09-17 12:16:53  DONE  train probe_h1zero_wt3_s2 after 00:07:03
+2026-09-17 12:16:53  START train probe_seonly_wt3_s2
+2026-09-17 12:16:53    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt3_s2" --seed 2 --no_mhtra --w_time 3 --stop_epoch 6
+2026-09-17 12:23:22  DONE  train probe_seonly_wt3_s2 after 00:06:28
+2026-09-17 12:23:22  START train probe_attnonly_wt3_s2
+2026-09-17 12:23:22    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt3_s2" --seed 2 --heads 1 --no_se --w_time 3 --stop_epoch 6
+2026-09-17 12:30:06  DONE  train probe_attnonly_wt3_s2 after 00:06:44
+2026-09-17 12:30:06  START train probe_base_wt3_s3
+2026-09-17 12:30:06    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt3_s3" --seed 3 --baseline --w_time 3 --stop_epoch 6
+2026-09-17 12:36:14  DONE  train probe_base_wt3_s3 after 00:06:07
+2026-09-17 12:36:14  START train probe_h1_wt3_s3
+2026-09-17 12:36:14    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt3_s3" --seed 3 --heads 1 --w_time 3 --stop_epoch 6
+2026-09-17 12:43:14  DONE  train probe_h1_wt3_s3 after 00:07:00
+2026-09-17 12:43:14  START train probe_h1zero_wt3_s3
+2026-09-17 12:43:14    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt3_s3" --seed 3 --heads 1 --zero_init_out --w_time 3 --stop_epoch 6
+2026-09-17 12:50:16  DONE  train probe_h1zero_wt3_s3 after 00:07:01
+2026-09-17 12:50:16  START train probe_seonly_wt3_s3
+2026-09-17 12:50:16    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt3_s3" --seed 3 --no_mhtra --w_time 3 --stop_epoch 6
+2026-09-17 12:56:52  DONE  train probe_seonly_wt3_s3 after 00:06:35
+2026-09-17 12:56:52  START train probe_attnonly_wt3_s3
+2026-09-17 12:56:52    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt3_s3" --seed 3 --heads 1 --no_se --w_time 3 --stop_epoch 6
+2026-09-17 13:03:41  DONE  train probe_attnonly_wt3_s3 after 00:06:49
+2026-09-17 13:03:41  START train probe_base_wt3_s4
+2026-09-17 13:03:41    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt3_s4" --seed 4 --baseline --w_time 3 --stop_epoch 6
+2026-09-17 13:09:59  DONE  train probe_base_wt3_s4 after 00:06:17
+2026-09-17 13:09:59  START train probe_h1_wt3_s4
+2026-09-17 13:09:59    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt3_s4" --seed 4 --heads 1 --w_time 3 --stop_epoch 6
+2026-09-17 13:17:04  DONE  train probe_h1_wt3_s4 after 00:07:05
+2026-09-17 13:17:04  START train probe_h1zero_wt3_s4
+2026-09-17 13:17:04    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt3_s4" --seed 4 --heads 1 --zero_init_out --w_time 3 --stop_epoch 6
+2026-09-17 13:24:09  DONE  train probe_h1zero_wt3_s4 after 00:07:04
+2026-09-17 13:24:09  START train probe_seonly_wt3_s4
+2026-09-17 13:24:09    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt3_s4" --seed 4 --no_mhtra --w_time 3 --stop_epoch 6
+2026-09-17 13:30:38  DONE  train probe_seonly_wt3_s4 after 00:06:29
+2026-09-17 13:30:38  START train probe_attnonly_wt3_s4
+2026-09-17 13:30:38    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt3_s4" --seed 4 --heads 1 --no_se --w_time 3 --stop_epoch 6
+2026-09-17 13:37:19  DONE  train probe_attnonly_wt3_s4 after 00:06:41
+2026-09-17 13:37:19  START train probe_base_wt3_s5
+2026-09-17 13:37:19    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt3_s5" --seed 5 --baseline --w_time 3 --stop_epoch 6
+2026-09-17 13:43:30  DONE  train probe_base_wt3_s5 after 00:06:10
+2026-09-17 13:43:30  START train probe_h1_wt3_s5
+2026-09-17 13:43:30    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1_wt3_s5" --seed 5 --heads 1 --w_time 3 --stop_epoch 6
+2026-09-17 13:50:33  DONE  train probe_h1_wt3_s5 after 00:07:02
+2026-09-17 13:50:33  START train probe_h1zero_wt3_s5
+2026-09-17 13:50:33    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_h1zero_wt3_s5" --seed 5 --heads 1 --zero_init_out --w_time 3 --stop_epoch 6
+2026-09-17 13:57:37  DONE  train probe_h1zero_wt3_s5 after 00:07:04
+2026-09-17 13:57:37  START train probe_seonly_wt3_s5
+2026-09-17 13:57:37    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_seonly_wt3_s5" --seed 5 --no_mhtra --w_time 3 --stop_epoch 6
+2026-09-17 14:03:59  DONE  train probe_seonly_wt3_s5 after 00:06:22
+2026-09-17 14:03:59  START train probe_attnonly_wt3_s5
+2026-09-17 14:03:59    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_attnonly_wt3_s5" --seed 5 --heads 1 --no_se --w_time 3 --stop_epoch 6
+2026-09-17 14:10:20  DONE  train probe_attnonly_wt3_s5 after 00:06:21
+2026-09-17 14:10:20  START train probe_base_wt3_s6
+2026-09-17 14:10:20    > python train.py --data "D:\mhtra_net\data\voicebank-demand-16k" --epochs 200 --batch_size 16 --segment 0 --lr 1e-3 --min_lr 1e-6 --warmup_frac 0.1 --w_time 0.1 --w_complex 100 --mag_floor 0 --no_learnable_erb --out "runs\probe_base_wt3_s6" --seed 6 --baseline --w_time 3 --stop_epoch 6

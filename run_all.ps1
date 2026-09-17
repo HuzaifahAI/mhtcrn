@@ -12,6 +12,7 @@
   # only some phases (comma separated): official, baseline, h1, h4, zeroinit, ablate, window,
   #   sweep (loss-weight robustness: w_time in $SweepWeights, both models),
   #   zeroinit_old (H=1 with W_o=0 under w_time=1), badlr (lr 2e-3, no warmup, both models),
+  #   probe (6-epoch escape-probability runs, $ProbeSeeds seeds x 5 configs x sweep weights),
   #   eval, gates, ood, collect
   .\run_all.ps1 -Data ... -Official ... -Phases baseline,h1,eval,collect
 
@@ -38,6 +39,8 @@ param(
     [double] $Segment = 0,
     [int] $Window = 64,
     [string[]] $SweepWeights = @("1", "3", "0.3"),
+    [int] $ProbeSeeds = 10,
+    [int] $ProbeEpochs = 6,
     [string[]] $Phases = @("official", "baseline", "h1", "h4", "zeroinit", "ablate", "window", "eval", "gates", "ood", "collect"),
     [switch] $Quick,
     [switch] $Amp
@@ -138,6 +141,22 @@ if ("sweep" -in $Phases) {
         }
     }
 }
+# --- escape probes: the basin is decided by epoch ~5, so short runs with many seeds estimate the escape
+#     PROBABILITY per config (10 seeds x 6 epochs ~ 7 min each). Full 200-epoch schedule, stopped early.
+#     Configs: baseline, H=1, H=1 zero-init W_o, SE only, attention only - at every sweep weight.
+if ("probe" -in $Phases) {
+    foreach ($w in $SweepWeights) {
+        $tag = "wt" + ($w -replace "\.", "p")
+        foreach ($s in 0..($ProbeSeeds - 1)) {
+            Train "probe_base_${tag}_s$s"     "--baseline --w_time $w --stop_epoch $ProbeEpochs" $s
+            Train "probe_h1_${tag}_s$s"       "--heads 1 --w_time $w --stop_epoch $ProbeEpochs" $s
+            Train "probe_h1zero_${tag}_s$s"   "--heads 1 --zero_init_out --w_time $w --stop_epoch $ProbeEpochs" $s
+            Train "probe_seonly_${tag}_s$s"   "--no_mhtra --w_time $w --stop_epoch $ProbeEpochs" $s
+            Train "probe_attnonly_${tag}_s$s" "--heads 1 --no_se --w_time $w --stop_epoch $ProbeEpochs" $s
+        }
+    }
+    Run "probe summary" "python probe_summary.py --runs `"$Runs`" --out `"$(Join-Path $Runs 'probe_summary.csv')`""
+}
 # --- mechanism test: does starting exactly at TRA (W_o = 0) still rescue the bad basin at w_time=1 ?
 if ("zeroinit_old" -in $Phases) {
     foreach ($s in $seedsAbl) { Train "h1zero_wt1_s$s" "--heads 1 --zero_init_out --w_time 1" $s }
@@ -151,7 +170,7 @@ if ("badlr" -in $Phases) {
 }
 
 # ---------------------------------------------------------------- evaluation
-$allRuns = Get-ChildItem -Path $Runs -Directory | Where-Object { (Test-Path (Join-Path $_.FullName "best.pt")) -and (Finished $_.FullName) }
+$allRuns = Get-ChildItem -Path $Runs -Directory | Where-Object { (Test-Path (Join-Path $_.FullName "best.pt")) -and (Finished $_.FullName) -and ($_.Name -notlike "probe_*") }
 foreach ($r in (Get-ChildItem -Path $Runs -Directory | Where-Object { (Test-Path (Join-Path $_.FullName "best.pt")) -and -not (Finished $_.FullName) })) {
     Log "WARN  $($r.Name) has best.pt but never finished training - NOT evaluated; re-run the training phase to resume it"
 }

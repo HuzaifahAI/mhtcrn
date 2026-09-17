@@ -102,6 +102,9 @@ def parse_args():
     ap.add_argument("--sched", choices=["cosine", "plateau"], default="cosine")
     ap.add_argument("--plateau_factor", type=float, default=0.5)
     ap.add_argument("--plateau_patience", type=int, default=10)
+    ap.add_argument("--stop_epoch", type=int, default=0,
+                    help="stop after this many epochs but keep the full --epochs schedule (same warmup, same LR "
+                         "trajectory). Used for short 'escape probe' runs: the good/bad basin is decided by epoch ~5")
     ap.add_argument("--warmup_frac", type=float, default=0.10,
                     help="cosine: fraction of all training steps spent in linear LR warmup (SEtrain: 0.1)")
     ap.add_argument("--min_lr", type=float, default=1e-6)
@@ -419,6 +422,10 @@ def main():
 
     try:
         for epoch in range(start_epoch, args.epochs):
+            if args.stop_epoch and epoch >= args.stop_epoch:
+                log.info("=== stop_epoch %d reached: probe run ends here (schedule was for %d epochs) ===",
+                         args.stop_epoch, args.epochs)
+                break
             model.train()
             t0, running = time.time(), {}
             steps_per_epoch = len(train_loader)

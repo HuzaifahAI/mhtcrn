@@ -1,0 +1,256 @@
+2026-09-17 06:14:53 | INFO    | train                  | === MHTRA-Net training ===
+2026-09-17 06:14:53 | INFO    | train                  | arguments:
+2026-09-17 06:14:53 | INFO    | train                  |     amp              = False
+2026-09-17 06:14:53 | INFO    | train                  |     attn_window      = None
+2026-09-17 06:14:53 | INFO    | train                  |     baseline         = False
+2026-09-17 06:14:53 | INFO    | train                  |     batch_seconds    = 48.0
+2026-09-17 06:14:53 | INFO    | train                  |     batch_size       = 16
+2026-09-17 06:14:53 | INFO    | train                  |     bn_recal         = -1
+2026-09-17 06:14:53 | INFO    | train                  |     bucket_size      = 50
+2026-09-17 06:14:53 | INFO    | train                  |     data             = D:\mhtra_net\data\voicebank-demand-16k
+2026-09-17 06:14:53 | INFO    | train                  |     ema              = 0.999
+2026-09-17 06:14:53 | INFO    | train                  |     epochs           = 200
+2026-09-17 06:14:53 | INFO    | train                  |     erb_anchor       = 1.0
+2026-09-17 06:14:53 | INFO    | train                  |     erb_ortho        = 0.0
+2026-09-17 06:14:53 | INFO    | train                  |     grad_clip        = 3.0
+2026-09-17 06:14:53 | INFO    | train                  |     grad_probe       = 20
+2026-09-17 06:14:53 | INFO    | train                  |     heads            = 4
+2026-09-17 06:14:53 | INFO    | train                  |     log_file         = None
+2026-09-17 06:14:53 | INFO    | train                  |     log_interval     = 50
+2026-09-17 06:14:53 | INFO    | train                  |     log_level        = INFO
+2026-09-17 06:14:53 | INFO    | train                  |     lr               = 0.001
+2026-09-17 06:14:53 | INFO    | train                  |     mag_floor        = 0.0
+2026-09-17 06:14:53 | INFO    | train                  |     min_lr           = 1e-06
+2026-09-17 06:14:53 | INFO    | train                  |     no_learnable_erb = True
+2026-09-17 06:14:53 | INFO    | train                  |     no_mhtra         = True
+2026-09-17 06:14:53 | INFO    | train                  |     no_se            = False
+2026-09-17 06:14:53 | INFO    | train                  |     no_tensorboard   = False
+2026-09-17 06:14:53 | INFO    | train                  |     out              = runs\probe_seonly_wt0p3_s1
+2026-09-17 06:14:53 | INFO    | train                  |     pesq_workers     = 8
+2026-09-17 06:14:53 | INFO    | train                  |     plateau_factor   = 0.5
+2026-09-17 06:14:53 | INFO    | train                  |     plateau_patience = 10
+2026-09-17 06:14:53 | INFO    | train                  |     prefetch         = 4
+2026-09-17 06:14:53 | INFO    | train                  |     resume           = None
+2026-09-17 06:14:53 | INFO    | train                  |     sched            = cosine
+2026-09-17 06:14:53 | INFO    | train                  |     seed             = 1
+2026-09-17 06:14:53 | INFO    | train                  |     segment          = 0.0
+2026-09-17 06:14:53 | INFO    | train                  |     select_metric    = pesq
+2026-09-17 06:14:53 | INFO    | train                  |     stop_epoch       = 6
+2026-09-17 06:14:53 | INFO    | train                  |     val_batch_size   = 16
+2026-09-17 06:14:53 | INFO    | train                  |     w_complex        = 100.0
+2026-09-17 06:14:53 | INFO    | train                  |     w_erb            = 0.01
+2026-09-17 06:14:53 | INFO    | train                  |     w_mrstft         = 0.0
+2026-09-17 06:14:53 | INFO    | train                  |     w_time           = 0.3
+2026-09-17 06:14:53 | INFO    | train                  |     warmup_frac      = 0.1
+2026-09-17 06:14:53 | INFO    | train                  |     weight_decay     = 0.0
+2026-09-17 06:14:53 | INFO    | train                  |     workers          = 4
+2026-09-17 06:14:53 | INFO    | train                  |     zero_init_out    = False
+2026-09-17 06:14:54 | INFO    | train                  | python      3.12.10
+2026-09-17 06:14:54 | INFO    | train                  | executable  D:\mhtra_net\mhtra_net\.venv\Scripts\python.exe
+2026-09-17 06:14:54 | INFO    | train                  | cwd         D:\mhtra_net\mhtra_fixed
+2026-09-17 06:14:54 | INFO    | train                  | numpy       2.5.2
+2026-09-17 06:14:54 | INFO    | train                  | torch       2.11.0+cu128 (cuda build: 12.8)
+2026-09-17 06:14:54 | INFO    | train                  | gpu         NVIDIA GeForce RTX 5060 Laptop GPU | 8.5 GB | 26 SMs
+2026-09-17 06:14:54 | INFO    | train                  | device      cuda
+2026-09-17 06:14:54 | INFO    | train                  | cudnn.benchmark=False, float32 matmul precision=high
+2026-09-17 06:14:54 | INFO    | train                  | building model ...
+2026-09-17 06:14:54 | INFO    | mhtra_net.model        | MHTRANet built: 24,125 params | 257 freq bins -> 129 ERB bands -> 33 DPGRNN width
+2026-09-17 06:14:54 | INFO    | mhtra_net.model        |   MHTRA=False (heads=4, head_dim=0, window=full causal)  SE=True  learnable_ERB=False  channels=16
+2026-09-17 06:14:54 | INFO    | train                  | building model done in 0.1s
+2026-09-17 06:14:54 | INFO    | train                  | model params: 24,125 | on cuda
+2026-09-17 06:14:54 | INFO    | train                  | run config written to runs\probe_seonly_wt0p3_s1\config.json
+2026-09-17 06:14:54 | INFO    | train                  | tensorboard -> runs\probe_seonly_wt0p3_s1\tb (view with: tensorboard --logdir D:\mhtra_net\mhtra_fixed\runs)
+2026-09-17 06:14:54 | INFO    | train                  | loading datasets ...
+2026-09-17 06:14:54 | INFO    | mhtra_net.dataset      | [train] scanning D:\mhtra_net\data\voicebank-demand-16k\clean_trainset_28spk_wav
+2026-09-17 06:14:54 | INFO    | mhtra_net.dataset      | [train] 10802 of 11572 files kept (held out speakers p226, p287)
+2026-09-17 06:14:54 | INFO    | mhtra_net.dataset      | [train] ready: 10802 pairs | full-length utterances | random_gain=True | 16000 Hz
+2026-09-17 06:14:54 | INFO    | mhtra_net.dataset      | [val] scanning D:\mhtra_net\data\voicebank-demand-16k\clean_trainset_28spk_wav
+2026-09-17 06:14:54 | INFO    | mhtra_net.dataset      | [val] 770 of 11572 files kept (speakers p226, p287)
+2026-09-17 06:14:54 | INFO    | mhtra_net.dataset      | [val] ready: 770 pairs | full-length utterances | random_gain=False | 16000 Hz
+2026-09-17 06:14:54 | INFO    | train                  | training on full-length utterances, length-bucketed batches (official recipe)
+2026-09-17 06:14:54 | INFO    | mhtra_net.dataset      | [train] durations: min 1.1s  median 2.7s  max 15.1s  total 525.5 min
+2026-09-17 06:14:54 | INFO    | mhtra_net.dataset      | LengthBucketSampler: 777 batches | items/batch min 2 median 16 max 16 | budget 48s of padded audio | bucket window 50 batches | ~1.5% zero padding
+2026-09-17 06:14:54 | INFO    | train                  | loading datasets done in 0.7s
+2026-09-17 06:14:54 | INFO    | train                  | train=10802 utterances (777 steps/epoch, batch <= 16)  val=770 utterances (49 batches)
+2026-09-17 06:14:54 | INFO    | train                  | BatchNorm recalibration before validation: 100 training batches
+2026-09-17 06:14:54 | INFO    | mhtra_net.stft         | STFT: n_fft=512 hop=256 win=512 (257 freq bins, 16.0 ms hop) on cuda
+2026-09-17 06:14:54 | INFO    | mhtra_net.losses       | loss weights: mrstft=0 time=0.3 complex=100 erb=0 (erb anchor=1 ortho=0)
+2026-09-17 06:14:54 | WARNING | train                  | loss weights differ from the official GTCRN HybridLoss (w_time=0.1, w_complex=100, mag_floor=0) - results will not be comparable to the released checkpoint
+2026-09-17 06:14:55 | INFO    | train                  | optimiser: AdamW lr=1.00e-03 wd=0.00e+00 | linear warmup 15540 steps (10%) then cosine over 155400 steps to min_lr=1.00e-06 | grad clip 3.0 | amp=False
+2026-09-17 06:14:55 | INFO    | train                  | EMA of weights: decay 0.999
+2026-09-17 06:14:55 | INFO    | train                  | best.pt selected on validation PESQ (8 PESQ worker processes), over raw and EMA weights
+2026-09-17 06:14:55 | INFO    | train                  | starting training: epochs 0..199, ~777 steps each
+2026-09-17 06:14:55 | INFO    | train                  | --- epoch 0/199 ---
+2026-09-17 06:15:00 | INFO    | train                  | grad probe step 0: complex=16.9168  time=33.5970
+2026-09-17 06:15:00 | INFO    | train                  | first step OK: batch (16, 40641) -> spec (16, 257, 159, 2) -> enhanced (16, 40641) | loss 19.0780
+2026-09-17 06:15:00 | INFO    | train                  | after first step: gpu memory: 0.04 GB allocated, 0.92 GB peak reserved
+2026-09-17 06:15:00 | INFO    | train                  | grad probe step 1: complex=19.7902  time=41.0402
+2026-09-17 06:15:00 | INFO    | train                  | grad probe step 2: complex=19.1641  time=32.1560
+2026-09-17 06:15:01 | INFO    | train                  | grad probe step 3: complex=18.4470  time=153.3597
+2026-09-17 06:15:01 | INFO    | train                  | grad probe step 4: complex=17.8191  time=35.9922
+2026-09-17 06:15:01 | INFO    | train                  | grad probe step 5: complex=20.6992  time=49.8744
+2026-09-17 06:15:01 | INFO    | train                  | grad probe step 6: complex=18.9411  time=34.2935
+2026-09-17 06:15:02 | INFO    | train                  | grad probe step 7: complex=17.3775  time=37.5495
+2026-09-17 06:15:02 | INFO    | train                  | grad probe step 8: complex=18.9134  time=35.6764
+2026-09-17 06:15:02 | INFO    | train                  | grad probe step 9: complex=17.5751  time=39.0742
+2026-09-17 06:15:02 | INFO    | train                  | grad probe step 10: complex=18.7058  time=35.6730
+2026-09-17 06:15:03 | INFO    | train                  | grad probe step 11: complex=18.2496  time=28.7000
+2026-09-17 06:15:03 | INFO    | train                  | grad probe step 12: complex=23.9192  time=41.9257
+2026-09-17 06:15:03 | INFO    | train                  | grad probe step 13: complex=19.0664  time=31.7792
+2026-09-17 06:15:04 | INFO    | train                  | grad probe step 14: complex=20.5455  time=38.3312
+2026-09-17 06:15:04 | INFO    | train                  | grad probe step 15: complex=17.2686  time=45.0081
+2026-09-17 06:15:04 | INFO    | train                  | grad probe step 16: complex=16.9311  time=42.6467
+2026-09-17 06:15:04 | INFO    | train                  | grad probe step 17: complex=21.8193  time=29.7550
+2026-09-17 06:15:05 | INFO    | train                  | grad probe step 18: complex=17.1712  time=33.9893
+2026-09-17 06:15:05 | INFO    | train                  | grad probe step 19: complex=15.9598  time=73.4691
+2026-09-17 06:15:10 | INFO    | train                  | ep 0 [50/777] lr=3.22e-06 time=10.3364  complex=0.1694  total=20.0431 | grad=27.93 | 3.37 steps/s (54.0 utt/s) | ETA 3m 35s
+2026-09-17 06:15:17 | INFO    | train                  | ep 0 [100/777] lr=6.44e-06 time=10.2386  complex=0.1748  total=20.5550 | grad=29.69 | 4.59 steps/s (73.4 utt/s) | ETA 2m 27s
+2026-09-17 06:15:24 | INFO    | train                  | ep 0 [150/777] lr=9.65e-06 time=10.0228  complex=0.1750  total=20.5110 | grad=31.21 | 5.09 steps/s (81.5 utt/s) | ETA 2m 03s
+2026-09-17 06:15:31 | INFO    | train                  | ep 0 [200/777] lr=1.29e-05 time=9.5842  complex=0.1741  total=20.2900 | grad=21.61 | 5.58 steps/s (89.4 utt/s) | ETA 1m 43s
+2026-09-17 06:15:36 | INFO    | train                  | ep 0 [250/777] lr=1.61e-05 time=9.1277  complex=0.1739  total=20.1246 | grad=22.16 | 6.08 steps/s (97.3 utt/s) | ETA 1m 26s
+2026-09-17 06:15:41 | INFO    | train                  | ep 0 [300/777] lr=1.93e-05 time=8.6393  complex=0.1728  total=19.8694 | grad=17.88 | 6.50 steps/s (104.0 utt/s) | ETA 1m 13s
+2026-09-17 06:15:47 | INFO    | train                  | ep 0 [350/777] lr=2.25e-05 time=8.1731  complex=0.1731  total=19.7602 | grad=12.17 | 6.76 steps/s (108.2 utt/s) | ETA 1m 03s
+2026-09-17 06:15:51 | INFO    | train                  | ep 0 [400/777] lr=2.57e-05 time=7.7315  complex=0.1725  total=19.5675 | grad=15.12 | 7.18 steps/s (114.9 utt/s) | ETA 52.5s
+2026-09-17 06:15:55 | INFO    | train                  | ep 0 [450/777] lr=2.90e-05 time=7.2757  complex=0.1716  total=19.3401 | grad=13.72 | 7.49 steps/s (119.9 utt/s) | ETA 43.6s
+2026-09-17 06:15:59 | INFO    | train                  | ep 0 [500/777] lr=3.22e-05 time=6.8807  complex=0.1706  total=19.1232 | grad=10.89 | 7.84 steps/s (125.5 utt/s) | ETA 35.3s
+2026-09-17 06:16:02 | INFO    | train                  | ep 0 [550/777] lr=3.54e-05 time=6.5033  complex=0.1694  total=18.8956 | grad=7.14 | 8.16 steps/s (130.6 utt/s) | ETA 27.8s
+2026-09-17 06:16:05 | INFO    | train                  | ep 0 [600/777] lr=3.86e-05 time=6.1777  complex=0.1685  total=18.6994 | grad=5.44 | 8.52 steps/s (136.3 utt/s) | ETA 20.8s
+2026-09-17 06:16:09 | INFO    | train                  | ep 0 [650/777] lr=4.18e-05 time=5.9058  complex=0.1673  total=18.5038 | grad=6.07 | 8.77 steps/s (140.3 utt/s) | ETA 14.5s
+2026-09-17 06:16:13 | INFO    | train                  | ep 0 [700/777] lr=4.50e-05 time=5.6430  complex=0.1662  total=18.3084 | grad=7.09 | 8.98 steps/s (143.7 utt/s) | ETA 8.6s
+2026-09-17 06:16:16 | INFO    | train                  | ep 0 [750/777] lr=4.83e-05 time=5.4200  complex=0.1645  total=18.0807 | grad=5.79 | 9.21 steps/s (147.3 utt/s) | ETA 2.9s
+2026-09-17 06:16:20 | INFO    | train                  | BatchNorm statistics recalibrated on 100 batches in 1.6s
+2026-09-17 06:16:20 | INFO    | train                  | epoch 0 [raw] validating on 49 batches ...
+2026-09-17 06:16:31 | INFO    | train                  | epoch 0 [raw] validation done in 11.7s (model 6.1s, PESQ 5.6s) over 770 utterances
+2026-09-17 06:16:31 | INFO    | train                  | epoch 0 [ema] validating on 49 batches ...
+2026-09-17 06:16:37 | INFO    | train                  | epoch 0 [ema] validation done in 5.8s (model 1.3s, PESQ 4.5s) over 770 utterances
+2026-09-17 06:16:37 | INFO    | train                  | epoch 0 done in 1m 42s | train=17.9760 | lr=5.01e-05 | raw: loss=9.9367 SI-SDR=-3.45 dB PESQ=1.445 | ema: loss=10.3318 SI-SDR=-3.96 dB PESQ=1.428 | run ETA 5h 39m 19s
+2026-09-17 06:16:37 | INFO    | train                  | epoch 0: gpu memory: 0.04 GB allocated, 1.85 GB peak reserved
+2026-09-17 06:16:37 | INFO    | train                  | checkpoint saved -> runs\probe_seonly_wt0p3_s1\last.pt (1.1 MB)
+2026-09-17 06:16:37 | INFO    | train                  |   -> new best PESQ 1.445 (first epoch) from RAW weights saved to runs\probe_seonly_wt0p3_s1\best.pt (SI-SDR -3.45 dB)
+2026-09-17 06:16:37 | INFO    | train                  | --- epoch 1/199 ---
+2026-09-17 06:16:41 | INFO    | train                  | ep 1 [50/777] lr=5.33e-05 time=1.9926  complex=0.1398  total=14.5822 | grad=7.95 | 12.51 steps/s (200.1 utt/s) | ETA 58.1s
+2026-09-17 06:16:44 | INFO    | train                  | ep 1 [100/777] lr=5.65e-05 time=1.8583  complex=0.1387  total=14.4289 | grad=7.06 | 14.00 steps/s (224.1 utt/s) | ETA 48.3s
+2026-09-17 06:16:47 | INFO    | train                  | ep 1 [150/777] lr=5.97e-05 time=1.7897  complex=0.1377  total=14.3049 | grad=7.28 | 15.16 steps/s (242.6 utt/s) | ETA 41.4s
+2026-09-17 06:16:51 | INFO    | train                  | ep 1 [200/777] lr=6.29e-05 time=1.7491  complex=0.1357  total=14.0992 | grad=4.38 | 14.77 steps/s (236.3 utt/s) | ETA 39.1s
+2026-09-17 06:16:54 | INFO    | train                  | ep 1 [250/777] lr=6.62e-05 time=1.7448  complex=0.1347  total=13.9925 | grad=5.77 | 15.35 steps/s (245.6 utt/s) | ETA 34.3s
+2026-09-17 06:16:56 | INFO    | train                  | ep 1 [300/777] lr=6.94e-05 time=1.6679  complex=0.1337  total=13.8745 | grad=5.41 | 15.82 steps/s (253.2 utt/s) | ETA 30.1s
+2026-09-17 06:16:59 | INFO    | train                  | ep 1 [350/777] lr=7.26e-05 time=1.5848  complex=0.1324  total=13.7137 | grad=4.65 | 16.06 steps/s (257.0 utt/s) | ETA 26.6s
+2026-09-17 06:17:02 | INFO    | train                  | ep 1 [400/777] lr=7.58e-05 time=1.5433  complex=0.1310  total=13.5601 | grad=4.13 | 16.33 steps/s (261.3 utt/s) | ETA 23.1s
+2026-09-17 06:17:05 | INFO    | train                  | ep 1 [450/777] lr=7.90e-05 time=1.4653  complex=0.1296  total=13.4041 | grad=22.00 | 16.27 steps/s (260.3 utt/s) | ETA 20.1s
+2026-09-17 06:17:08 | INFO    | train                  | ep 1 [500/777] lr=8.22e-05 time=1.4176  complex=0.1286  total=13.2893 | grad=4.90 | 16.33 steps/s (261.3 utt/s) | ETA 17.0s
+2026-09-17 06:17:11 | INFO    | train                  | ep 1 [550/777] lr=8.55e-05 time=1.3741  complex=0.1276  total=13.1751 | grad=5.14 | 16.41 steps/s (262.6 utt/s) | ETA 13.8s
+2026-09-17 06:17:14 | INFO    | train                  | ep 1 [600/777] lr=8.87e-05 time=1.3227  complex=0.1263  total=13.0239 | grad=6.52 | 16.46 steps/s (263.4 utt/s) | ETA 10.8s
+2026-09-17 06:17:16 | INFO    | train                  | ep 1 [650/777] lr=9.19e-05 time=1.2735  complex=0.1252  total=12.8989 | grad=4.88 | 16.61 steps/s (265.7 utt/s) | ETA 7.6s
+2026-09-17 06:17:20 | INFO    | train                  | ep 1 [700/777] lr=9.51e-05 time=1.2387  complex=0.1242  total=12.7925 | grad=8.15 | 16.47 steps/s (263.6 utt/s) | ETA 4.7s
+2026-09-17 06:17:24 | INFO    | train                  | ep 1 [750/777] lr=9.83e-05 time=1.1878  complex=0.1230  total=12.6594 | grad=9.53 | 16.22 steps/s (259.5 utt/s) | ETA 1.7s
+2026-09-17 06:17:27 | INFO    | train                  | BatchNorm statistics recalibrated on 100 batches in 1.6s
+2026-09-17 06:17:27 | INFO    | train                  | epoch 1 [raw] validating on 49 batches ...
+2026-09-17 06:17:32 | INFO    | train                  | epoch 1 [raw] validation done in 4.9s (model 1.3s, PESQ 3.6s) over 770 utterances
+2026-09-17 06:17:32 | INFO    | train                  | epoch 1 [ema] validating on 49 batches ...
+2026-09-17 06:17:36 | INFO    | train                  | epoch 1 [ema] validation done in 4.8s (model 1.3s, PESQ 3.5s) over 770 utterances
+2026-09-17 06:17:36 | INFO    | train                  | epoch 1 done in 59.0s | train=12.5856 | lr=1.00e-04 | raw: loss=6.9453 SI-SDR=-0.30 dB PESQ=1.530 | ema: loss=7.3083 SI-SDR=-0.56 dB PESQ=1.536 | run ETA 4h 26m 26s
+2026-09-17 06:17:36 | INFO    | train                  | epoch 1: gpu memory: 0.05 GB allocated, 1.85 GB peak reserved
+2026-09-17 06:17:36 | INFO    | train                  | checkpoint saved -> runs\probe_seonly_wt0p3_s1\last.pt (1.1 MB)
+2026-09-17 06:17:36 | INFO    | train                  |   -> new best PESQ 1.536 (+0.091) from EMA weights saved to runs\probe_seonly_wt0p3_s1\best.pt (SI-SDR -0.56 dB)
+2026-09-17 06:17:36 | INFO    | train                  | --- epoch 2/199 ---
+2026-09-17 06:17:40 | INFO    | train                  | ep 2 [50/778] lr=1.03e-04 time=0.4514  complex=0.1064  total=10.7770 | grad=9.05 | 16.33 steps/s (261.4 utt/s) | ETA 44.6s
+2026-09-17 06:17:43 | INFO    | train                  | ep 2 [100/778] lr=1.06e-04 time=0.5135  complex=0.1062  total=10.7699 | grad=10.46 | 15.53 steps/s (248.5 utt/s) | ETA 43.7s
+2026-09-17 06:17:46 | INFO    | train                  | ep 2 [150/778] lr=1.10e-04 time=0.5386  complex=0.1051  total=10.6670 | grad=6.46 | 15.64 steps/s (250.2 utt/s) | ETA 40.2s
+2026-09-17 06:17:49 | INFO    | train                  | ep 2 [200/778] lr=1.13e-04 time=0.4991  complex=0.1044  total=10.5876 | grad=4.64 | 16.14 steps/s (258.2 utt/s) | ETA 35.8s
+2026-09-17 06:17:52 | INFO    | train                  | ep 2 [250/778] lr=1.16e-04 time=0.4669  complex=0.1037  total=10.5118 | grad=7.54 | 16.34 steps/s (261.5 utt/s) | ETA 32.3s
+2026-09-17 06:17:55 | INFO    | train                  | ep 2 [300/778] lr=1.19e-04 time=0.4311  complex=0.1026  total=10.3942 | grad=5.84 | 16.18 steps/s (259.0 utt/s) | ETA 29.5s
+2026-09-17 06:17:58 | INFO    | train                  | ep 2 [350/778] lr=1.23e-04 time=0.3931  complex=0.1016  total=10.2762 | grad=4.45 | 16.59 steps/s (265.4 utt/s) | ETA 25.8s
+2026-09-17 06:18:00 | INFO    | train                  | ep 2 [400/778] lr=1.26e-04 time=0.3842  complex=0.1010  total=10.2150 | grad=12.54 | 16.79 steps/s (268.6 utt/s) | ETA 22.5s
+2026-09-17 06:18:03 | INFO    | train                  | ep 2 [450/778] lr=1.29e-04 time=0.3775  complex=0.1002  total=10.1316 | grad=6.17 | 16.83 steps/s (269.3 utt/s) | ETA 19.5s
+2026-09-17 06:18:06 | INFO    | train                  | ep 2 [500/778] lr=1.32e-04 time=0.3520  complex=0.0995  total=10.0597 | grad=10.04 | 16.97 steps/s (271.4 utt/s) | ETA 16.4s
+2026-09-17 06:18:09 | INFO    | train                  | ep 2 [550/778] lr=1.35e-04 time=0.3241  complex=0.0988  total=9.9754 | grad=5.74 | 17.05 steps/s (272.9 utt/s) | ETA 13.4s
+2026-09-17 06:18:12 | INFO    | train                  | ep 2 [600/778] lr=1.39e-04 time=0.3206  complex=0.0985  total=9.9426 | grad=15.59 | 16.89 steps/s (270.2 utt/s) | ETA 10.5s
+2026-09-17 06:18:15 | INFO    | train                  | ep 2 [650/778] lr=1.42e-04 time=0.3073  complex=0.0978  total=9.8751 | grad=4.50 | 16.96 steps/s (271.4 utt/s) | ETA 7.5s
+2026-09-17 06:18:17 | INFO    | train                  | ep 2 [700/778] lr=1.45e-04 time=0.2995  complex=0.0972  total=9.8112 | grad=6.90 | 17.17 steps/s (274.7 utt/s) | ETA 4.5s
+2026-09-17 06:18:20 | INFO    | train                  | ep 2 [750/778] lr=1.48e-04 time=0.2852  complex=0.0966  total=9.7445 | grad=9.26 | 17.25 steps/s (276.0 utt/s) | ETA 1.6s
+2026-09-17 06:18:23 | INFO    | train                  | BatchNorm statistics recalibrated on 100 batches in 1.6s
+2026-09-17 06:18:23 | INFO    | train                  | epoch 2 [raw] validating on 49 batches ...
+2026-09-17 06:18:28 | INFO    | train                  | epoch 2 [raw] validation done in 5.0s (model 1.2s, PESQ 3.8s) over 770 utterances
+2026-09-17 06:18:28 | INFO    | train                  | epoch 2 [ema] validating on 49 batches ...
+2026-09-17 06:18:33 | INFO    | train                  | epoch 2 [ema] validation done in 5.1s (model 1.3s, PESQ 3.8s) over 770 utterances
+2026-09-17 06:18:33 | INFO    | train                  | epoch 2 done in 56.8s | train=9.7067 | lr=1.50e-04 | raw: loss=5.5721 SI-SDR=0.40 dB PESQ=1.467 | ema: loss=5.8830 SI-SDR=0.20 dB PESQ=1.489 | run ETA 3h 58m 57s
+2026-09-17 06:18:33 | INFO    | train                  | epoch 2: gpu memory: 0.04 GB allocated, 1.85 GB peak reserved
+2026-09-17 06:18:33 | INFO    | train                  | checkpoint saved -> runs\probe_seonly_wt0p3_s1\last.pt (1.1 MB)
+2026-09-17 06:18:33 | INFO    | train                  |   no improvement (best PESQ is still 1.536)
+2026-09-17 06:18:33 | INFO    | train                  | --- epoch 3/199 ---
+2026-09-17 06:18:36 | INFO    | train                  | ep 3 [50/777] lr=1.53e-04 time=0.1689  complex=0.0879  total=8.8399 | grad=6.59 | 18.31 steps/s (293.0 utt/s) | ETA 39.7s
+2026-09-17 06:18:39 | INFO    | train                  | ep 3 [100/777] lr=1.56e-04 time=0.1363  complex=0.0875  total=8.7937 | grad=7.42 | 17.50 steps/s (280.0 utt/s) | ETA 38.7s
+2026-09-17 06:18:42 | INFO    | train                  | ep 3 [150/777] lr=1.60e-04 time=0.0681  complex=0.0876  total=8.7814 | grad=14.89 | 17.02 steps/s (272.4 utt/s) | ETA 36.8s
+2026-09-17 06:18:45 | INFO    | train                  | ep 3 [200/777] lr=1.63e-04 time=0.0558  complex=0.0872  total=8.7361 | grad=5.92 | 16.96 steps/s (271.4 utt/s) | ETA 34.0s
+2026-09-17 06:18:48 | INFO    | train                  | ep 3 [250/777] lr=1.66e-04 time=0.0508  complex=0.0867  total=8.6874 | grad=10.75 | 17.25 steps/s (276.0 utt/s) | ETA 30.5s
+2026-09-17 06:18:50 | INFO    | train                  | ep 3 [300/777] lr=1.69e-04 time=0.0377  complex=0.0863  total=8.6432 | grad=5.95 | 17.48 steps/s (279.6 utt/s) | ETA 27.3s
+2026-09-17 06:18:53 | INFO    | train                  | ep 3 [350/777] lr=1.73e-04 time=-0.0241  complex=0.0857  total=8.5653 | grad=13.57 | 17.61 steps/s (281.8 utt/s) | ETA 24.2s
+2026-09-17 06:18:56 | INFO    | train                  | ep 3 [400/777] lr=1.76e-04 time=-0.0369  complex=0.0855  total=8.5382 | grad=12.81 | 17.65 steps/s (282.3 utt/s) | ETA 21.4s
+2026-09-17 06:18:59 | INFO    | train                  | ep 3 [450/777] lr=1.79e-04 time=-0.0261  complex=0.0851  total=8.5058 | grad=5.76 | 17.65 steps/s (282.5 utt/s) | ETA 18.5s
+2026-09-17 06:19:02 | INFO    | train                  | ep 3 [500/777] lr=1.82e-04 time=-0.0351  complex=0.0849  total=8.4760 | grad=11.67 | 17.66 steps/s (282.5 utt/s) | ETA 15.7s
+2026-09-17 06:19:05 | INFO    | train                  | ep 3 [550/777] lr=1.85e-04 time=-0.0302  complex=0.0849  total=8.4765 | grad=6.34 | 17.40 steps/s (278.4 utt/s) | ETA 13.0s
+2026-09-17 06:19:08 | INFO    | train                  | ep 3 [600/777] lr=1.89e-04 time=-0.0497  complex=0.0845  total=8.4340 | grad=5.26 | 17.48 steps/s (279.7 utt/s) | ETA 10.1s
+2026-09-17 06:19:10 | INFO    | train                  | ep 3 [650/777] lr=1.92e-04 time=-0.0606  complex=0.0843  total=8.4095 | grad=8.60 | 17.63 steps/s (282.1 utt/s) | ETA 7.2s
+2026-09-17 06:19:13 | INFO    | train                  | ep 3 [700/777] lr=1.95e-04 time=-0.0908  complex=0.0839  total=8.3632 | grad=9.07 | 17.62 steps/s (281.8 utt/s) | ETA 4.4s
+2026-09-17 06:19:16 | INFO    | train                  | ep 3 [750/777] lr=1.98e-04 time=-0.0910  complex=0.0837  total=8.3455 | grad=9.15 | 17.66 steps/s (282.6 utt/s) | ETA 1.5s
+2026-09-17 06:19:19 | INFO    | train                  | BatchNorm statistics recalibrated on 100 batches in 1.6s
+2026-09-17 06:19:19 | INFO    | train                  | epoch 3 [raw] validating on 49 batches ...
+2026-09-17 06:19:24 | INFO    | train                  | epoch 3 [raw] validation done in 4.8s (model 1.3s, PESQ 3.6s) over 770 utterances
+2026-09-17 06:19:24 | INFO    | train                  | epoch 3 [ema] validating on 49 batches ...
+2026-09-17 06:19:29 | INFO    | train                  | epoch 3 [ema] validation done in 4.9s (model 1.3s, PESQ 3.7s) over 770 utterances
+2026-09-17 06:19:29 | INFO    | train                  | epoch 3 done in 55.7s | train=8.3360 | lr=2.00e-04 | raw: loss=5.0144 SI-SDR=0.54 dB PESQ=1.438 | ema: loss=5.1730 SI-SDR=0.66 dB PESQ=1.455 | run ETA 3h 43m 48s
+2026-09-17 06:19:29 | INFO    | train                  | epoch 3: gpu memory: 0.04 GB allocated, 1.85 GB peak reserved
+2026-09-17 06:19:29 | INFO    | train                  | checkpoint saved -> runs\probe_seonly_wt0p3_s1\last.pt (1.1 MB)
+2026-09-17 06:19:29 | INFO    | train                  |   no improvement (best PESQ is still 1.536)
+2026-09-17 06:19:29 | INFO    | train                  | --- epoch 4/199 ---
+2026-09-17 06:19:32 | INFO    | train                  | ep 4 [50/777] lr=2.03e-04 time=-0.0015  complex=0.0805  total=8.0520 | grad=12.61 | 17.92 steps/s (286.7 utt/s) | ETA 40.6s
+2026-09-17 06:19:35 | INFO    | train                  | ep 4 [100/777] lr=2.07e-04 time=-0.1773  complex=0.0798  total=7.9235 | grad=13.75 | 18.11 steps/s (289.8 utt/s) | ETA 37.4s
+2026-09-17 06:19:37 | INFO    | train                  | ep 4 [150/777] lr=2.10e-04 time=-0.1979  complex=0.0801  total=7.9513 | grad=9.36 | 18.14 steps/s (290.2 utt/s) | ETA 34.6s
+2026-09-17 06:19:40 | INFO    | train                  | ep 4 [200/777] lr=2.13e-04 time=-0.2636  complex=0.0796  total=7.8818 | grad=15.39 | 18.03 steps/s (288.4 utt/s) | ETA 32.0s
+2026-09-17 06:19:43 | INFO    | train                  | ep 4 [250/777] lr=2.16e-04 time=-0.2988  complex=0.0792  total=7.8300 | grad=13.78 | 18.31 steps/s (292.9 utt/s) | ETA 28.8s
+2026-09-17 06:19:46 | INFO    | train                  | ep 4 [300/777] lr=2.19e-04 time=-0.3095  complex=0.0791  total=7.8127 | grad=8.33 | 18.11 steps/s (289.7 utt/s) | ETA 26.3s
+2026-09-17 06:19:48 | INFO    | train                  | ep 4 [350/777] lr=2.23e-04 time=-0.3210  complex=0.0794  total=7.8400 | grad=8.07 | 18.30 steps/s (292.8 utt/s) | ETA 23.3s
+2026-09-17 06:19:51 | INFO    | train                  | ep 4 [400/777] lr=2.26e-04 time=-0.3424  complex=0.0794  total=7.8422 | grad=8.29 | 18.36 steps/s (293.8 utt/s) | ETA 20.5s
+2026-09-17 06:19:54 | INFO    | train                  | ep 4 [450/777] lr=2.29e-04 time=-0.3393  complex=0.0794  total=7.8392 | grad=11.21 | 18.26 steps/s (292.2 utt/s) | ETA 17.9s
+2026-09-17 06:19:56 | INFO    | train                  | ep 4 [500/777] lr=2.32e-04 time=-0.3406  complex=0.0795  total=7.8521 | grad=18.48 | 18.33 steps/s (293.3 utt/s) | ETA 15.1s
+2026-09-17 06:19:59 | INFO    | train                  | ep 4 [550/777] lr=2.36e-04 time=-0.3408  complex=0.0795  total=7.8491 | grad=6.86 | 18.42 steps/s (294.7 utt/s) | ETA 12.3s
+2026-09-17 06:20:02 | INFO    | train                  | ep 4 [600/777] lr=2.39e-04 time=-0.3532  complex=0.0795  total=7.8424 | grad=5.35 | 18.36 steps/s (293.7 utt/s) | ETA 9.6s
+2026-09-17 06:20:04 | INFO    | train                  | ep 4 [650/777] lr=2.42e-04 time=-0.3508  complex=0.0794  total=7.8353 | grad=9.65 | 18.39 steps/s (294.2 utt/s) | ETA 6.9s
+2026-09-17 06:20:07 | INFO    | train                  | ep 4 [700/777] lr=2.45e-04 time=-0.3562  complex=0.0795  total=7.8409 | grad=9.71 | 18.32 steps/s (293.1 utt/s) | ETA 4.2s
+2026-09-17 06:20:10 | INFO    | train                  | ep 4 [750/777] lr=2.48e-04 time=-0.3761  complex=0.0794  total=7.8256 | grad=9.05 | 18.29 steps/s (292.6 utt/s) | ETA 1.5s
+2026-09-17 06:20:13 | INFO    | train                  | BatchNorm statistics recalibrated on 100 batches in 1.6s
+2026-09-17 06:20:13 | INFO    | train                  | epoch 4 [raw] validating on 49 batches ...
+2026-09-17 06:20:18 | INFO    | train                  | epoch 4 [raw] validation done in 5.0s (model 1.3s, PESQ 3.7s) over 770 utterances
+2026-09-17 06:20:18 | INFO    | train                  | epoch 4 [ema] validating on 49 batches ...
+2026-09-17 06:20:23 | INFO    | train                  | epoch 4 [ema] validation done in 4.6s (model 1.2s, PESQ 3.4s) over 770 utterances
+2026-09-17 06:20:23 | INFO    | train                  | epoch 4 done in 53.7s | train=7.8319 | lr=2.50e-04 | raw: loss=4.7095 SI-SDR=0.94 dB PESQ=1.452 | ema: loss=4.8193 SI-SDR=0.95 dB PESQ=1.453 | run ETA 3h 33m 04s
+2026-09-17 06:20:23 | INFO    | train                  | epoch 4: gpu memory: 0.05 GB allocated, 1.85 GB peak reserved
+2026-09-17 06:20:23 | INFO    | train                  | checkpoint saved -> runs\probe_seonly_wt0p3_s1\last.pt (1.1 MB)
+2026-09-17 06:20:23 | INFO    | train                  |   no improvement (best PESQ is still 1.536)
+2026-09-17 06:20:23 | INFO    | train                  | --- epoch 5/199 ---
+2026-09-17 06:20:25 | INFO    | train                  | ep 5 [50/776] lr=2.53e-04 time=-0.6967  complex=0.0775  total=7.5407 | grad=13.26 | 18.33 steps/s (293.3 utt/s) | ETA 39.6s
+2026-09-17 06:20:28 | INFO    | train                  | ep 5 [100/776] lr=2.57e-04 time=-0.6054  complex=0.0776  total=7.5796 | grad=8.20 | 18.29 steps/s (292.7 utt/s) | ETA 37.0s
+2026-09-17 06:20:31 | INFO    | train                  | ep 5 [150/776] lr=2.60e-04 time=-0.6429  complex=0.0770  total=7.5031 | grad=9.45 | 18.37 steps/s (293.9 utt/s) | ETA 34.1s
+2026-09-17 06:20:34 | INFO    | train                  | ep 5 [200/776] lr=2.63e-04 time=-0.6529  complex=0.0772  total=7.5194 | grad=4.09 | 18.35 steps/s (293.7 utt/s) | ETA 31.4s
+2026-09-17 06:20:36 | INFO    | train                  | ep 5 [250/776] lr=2.66e-04 time=-0.6195  complex=0.0771  total=7.5239 | grad=6.98 | 18.56 steps/s (296.9 utt/s) | ETA 28.3s
+2026-09-17 06:20:39 | INFO    | train                  | ep 5 [300/776] lr=2.70e-04 time=-0.6675  complex=0.0771  total=7.5073 | grad=14.59 | 18.35 steps/s (293.6 utt/s) | ETA 25.9s
+2026-09-17 06:20:42 | INFO    | train                  | ep 5 [350/776] lr=2.73e-04 time=-0.6346  complex=0.0773  total=7.5437 | grad=14.54 | 18.21 steps/s (291.4 utt/s) | ETA 23.4s
+2026-09-17 06:20:45 | INFO    | train                  | ep 5 [400/776] lr=2.76e-04 time=-0.6391  complex=0.0773  total=7.5398 | grad=9.75 | 18.13 steps/s (290.1 utt/s) | ETA 20.7s
+2026-09-17 06:20:48 | INFO    | train                  | ep 5 [450/776] lr=2.79e-04 time=-0.6450  complex=0.0772  total=7.5265 | grad=6.86 | 18.16 steps/s (290.5 utt/s) | ETA 18.0s
+2026-09-17 06:20:50 | INFO    | train                  | ep 5 [500/776] lr=2.82e-04 time=-0.6464  complex=0.0771  total=7.5114 | grad=4.02 | 18.18 steps/s (290.9 utt/s) | ETA 15.2s
+2026-09-17 06:20:53 | INFO    | train                  | ep 5 [550/776] lr=2.86e-04 time=-0.6671  complex=0.0770  total=7.5012 | grad=9.44 | 18.30 steps/s (292.7 utt/s) | ETA 12.4s
+2026-09-17 06:20:56 | INFO    | train                  | ep 5 [600/776] lr=2.89e-04 time=-0.6832  complex=0.0769  total=7.4801 | grad=5.73 | 18.31 steps/s (293.0 utt/s) | ETA 9.6s
+2026-09-17 06:20:58 | INFO    | train                  | ep 5 [650/776] lr=2.92e-04 time=-0.6941  complex=0.0769  total=7.4794 | grad=8.82 | 18.32 steps/s (293.1 utt/s) | ETA 6.9s
+2026-09-17 06:21:01 | INFO    | train                  | ep 5 [700/776] lr=2.95e-04 time=-0.7086  complex=0.0767  total=7.4598 | grad=16.58 | 18.19 steps/s (291.0 utt/s) | ETA 4.2s
+2026-09-17 06:21:04 | INFO    | train                  | ep 5 [750/776] lr=2.99e-04 time=-0.7262  complex=0.0766  total=7.4371 | grad=7.99 | 18.18 steps/s (290.9 utt/s) | ETA 1.4s
+2026-09-17 06:21:07 | INFO    | train                  | BatchNorm statistics recalibrated on 100 batches in 1.6s
+2026-09-17 06:21:07 | INFO    | train                  | epoch 5 [raw] validating on 49 batches ...
+2026-09-17 06:21:12 | INFO    | train                  | epoch 5 [raw] validation done in 4.9s (model 1.3s, PESQ 3.7s) over 770 utterances
+2026-09-17 06:21:12 | INFO    | train                  | epoch 5 [ema] validating on 49 batches ...
+2026-09-17 06:21:17 | INFO    | train                  | epoch 5 [ema] validation done in 4.8s (model 1.2s, PESQ 3.6s) over 770 utterances
+2026-09-17 06:21:17 | INFO    | train                  | epoch 5 done in 53.9s | train=7.4172 | lr=3.00e-04 | raw: loss=4.4418 SI-SDR=1.37 dB PESQ=1.495 | ema: loss=4.5702 SI-SDR=1.19 dB PESQ=1.474 | run ETA 3h 25m 44s
+2026-09-17 06:21:17 | INFO    | train                  | epoch 5: gpu memory: 0.05 GB allocated, 1.85 GB peak reserved
+2026-09-17 06:21:17 | INFO    | train                  | checkpoint saved -> runs\probe_seonly_wt0p3_s1\last.pt (1.1 MB)
+2026-09-17 06:21:17 | INFO    | train                  |   no improvement (best PESQ is still 1.536)
+2026-09-17 06:21:17 | INFO    | train                  | === stop_epoch 6 reached: probe run ends here (schedule was for 200 epochs) ===
+2026-09-17 06:21:17 | INFO    | train                  | === training finished: 200 epochs in 6m 21s | best val PESQ 1.536 | best val SI-SDR 1.37 dB | best.pt chosen on PESQ | checkpoints in runs\probe_seonly_wt0p3_s1 ===
